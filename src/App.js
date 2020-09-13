@@ -1,10 +1,14 @@
 import React from 'react';
 
+// components
+import Header from './Components/HeaderComponents/Header.js';
+import Intro from './Pages/Intro';
+
 function App() {
   return (
     <div className="app">
-      <div className="div-background-window" />
-      <div className="div-home-bottom" />
+      <Header />
+      <Intro />
     </div>
   );
 }
