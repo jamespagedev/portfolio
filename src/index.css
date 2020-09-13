@@ -19,6 +19,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 h1 {
   margin: 0;
   padding: 0;
@@ -26,6 +27,7 @@ h1 {
   font-size: 3.2rem;
   vertical-align: baseline;
 }
+
 h2 {
   margin: 0;
   padding: 0;
@@ -33,6 +35,7 @@ h2 {
   font-size: 2.4rem;
   vertical-align: baseline;
 }
+
 h3 {
   margin: 0;
   padding: 0;
@@ -40,6 +43,7 @@ h3 {
   font-size: 1.872rem;
   vertical-align: baseline;
 }
+
 h4, p, a {
   margin: 0;
   padding: 0;
@@ -47,6 +51,7 @@ h4, p, a {
   font-size: 1.6rem;
   vertical-align: baseline;
 }
+
 a:link {
   color: (internal value);
 }
@@ -59,6 +64,7 @@ a:link:active {
 a:visited:active {
   color: (internal value);
 }
+
 h5 {
   margin: 0;
   padding: 0;
@@ -66,6 +72,7 @@ h5 {
   font-size: 1.328rem;
   vertical-align: baseline;
 }
+
 h6 {
   margin: 0;
   padding: 0;
@@ -78,9 +85,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol, ul {
   list-style: none;
 }
@@ -92,10 +101,12 @@ q:before, q:after {
   content: '';
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 html,
 body,
 #root {
@@ -107,9 +118,11 @@ body,
   font-size: 62.5%;
   min-height: 100%;
 }
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
 img {
   width: 100%;
 }
@@ -128,6 +141,24 @@ img {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+@keyframes bounce-arrow-before {
+  from {
+    top: 0%;
+  }
+  to {
+    top: 9%;
+  }
+}
+
+@keyframes bounce-arrow-after {
+  from {
+    top: 11%;
+  }
+  to {
+    top: 20%;
+  }
 }
 /*-------------------------- Classes --------------------------*/
 .a-intro-bottom-click {
@@ -182,9 +213,9 @@ img {
   border-bottom: 5px ridge #ffffff;
   border-right: 5px ridge #ffffff;
   border-radius: 5px;
-  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-before;
-  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-before;
-  animation: 0.3s ease-out 0.3s infinite alternate bounce-before;
+  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
+  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
+  animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
 }
 
 .div-bouncing-arrow::after {
@@ -198,9 +229,9 @@ img {
   border-bottom: 5px ridge #ffffff;
   border-right: 5px ridge #ffffff;
   border-radius: 5px;
-  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-after;
-  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-after;
-  animation: 0.3s ease-out 0.3s infinite alternate bounce-after;
+  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
+  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
+  animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
 }
 
 .a-intro-bottom-click:hover .div-bouncing-arrow::before {
@@ -211,24 +242,6 @@ img {
 .a-intro-bottom-click:hover .div-bouncing-arrow::after {
   border-bottom: 5px ridge rgba(0,0,0,0.7);
   border-right: 5px ridge rgba(0,0,0,0.7);
-}
-
-@keyframes bounce-before {
-  from {
-    top: 0%;
-  }
-  to {
-    top: 9%;
-  }
-}
-
-@keyframes bounce-after {
-  from {
-    top: 11%;
-  }
-  to {
-    top: 20%;
-  }
 }
 
 .div-intro-bottom {
@@ -265,10 +278,12 @@ img {
   text-decoration: none;
   padding: 2rem;
   transition: color 0.6s;
+  user-select: none;
 }
 
 .a-nav-desktop-item:hover {
   color: #1e90ff;
+  cursor: pointer;
 }
 
 .a-nav-desktop-item:active {

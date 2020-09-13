@@ -2,7 +2,7 @@ import React from 'react';
 
 function Intro() {
   return (
-    <div>
+    <div id="intro">
       <div className="div-intro-background-window">
         <p>Greetings, my name is James Page and I'm a</p>
         <h1>Full Stack Web Developer</h1>
