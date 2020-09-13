@@ -10,8 +10,8 @@ function Intro() {
       </div>
       <a href="#" className="a-intro-bottom-click">
         <div className="div-bouncing-arrow" />
+        <div className="div-intro-bottom" />
       </a>
-      <div className="div-intro-bottom" />
     </div>
   );
 }
