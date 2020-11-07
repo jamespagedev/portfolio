@@ -15,8 +15,17 @@ function NavDesktop() {
       >
         Intro
       </Link>
-      {/* <a href="#" className="a-nav-desktop-item">Intro</a> */}
-      <a href="#" className="a-nav-desktop-item">About</a>
+      <Link
+        activeClass="active"
+        to={`about`}
+        spy={true}
+        smooth={true}
+        offset={-80}
+        duration={500}
+        className="a-nav-desktop-item"
+      >
+        About
+      </Link>
       <a href="#" className="a-nav-desktop-item">Projects</a>
       <a href="#" className="a-nav-desktop-item">Skills</a>
       <a href="#" className="a-nav-desktop-item">Resumes</a>
