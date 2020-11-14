@@ -124,6 +124,7 @@ body,
 img {
   width: 100%;
 }
+
 /*-------------------------- Globals --------------------------*/
 .app {
   display: flex;
@@ -143,24 +144,6 @@ img {
 
 .display-none {
   display: none;
-}
-
-@keyframes bounce-arrow-before {
-  from {
-    top: -5%;
-  }
-  to {
-    top: 1%;
-  }
-}
-
-@keyframes bounce-arrow-after {
-  from {
-    top: 11%;
-  }
-  to {
-    top: 17%;
-  }
 }
 /*-------------------------- Desktop --------------------------*/
 .a-intro-bottom-click {
@@ -364,37 +347,7 @@ img {
   height: 100%;
 }
 
-.div-bouncing-arrow::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  transform: translate(-50%) rotate(45deg);
-  border-bottom: 4px solid #ffffff;
-  border-right: 4px solid #ffffff;
-  border-radius: 4px;
-  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
-  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
-  animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
-}
 
-.div-bouncing-arrow::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  transform: translate(-50%) rotate(45deg);
-  border-bottom: 4px solid #ffffff;
-  border-right: 4px solid #ffffff;
-  border-radius: 4px;
-  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
-  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
-  animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
-}
 
 .header {
   display: block;
@@ -429,8 +382,65 @@ img {
   color: #1e90ff;
 }
 
+/*----------------------- Wide Desktop ------------------------*/
+@media(max-height: 3500px) 
+{
+  .div-bouncing-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-3500;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-3500;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-3500;
+  }
+  
+  .div-bouncing-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-3500;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-3500;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-3500;
+  }
+}
 
-/*-------------------------- Tablet ---------------------------*/
+@keyframes bounce-arrow-before-3500 {
+  from {
+    top: 0;
+  }
+  to {
+    top: 2vh;
+  }
+}
+
+@keyframes bounce-arrow-after-3500 {
+  from {
+    top: 3vh;
+  }
+  to {
+    top: 5vh;
+  }
+}
+
+/*-------------------------- Desktop --------------------------*/
+@media(max-height: 2200px) 
+{}
+
+/*------------------------ Large Tablet -----------------------*/
 .nav-tablet {
   display: none;
   position: relative;
@@ -459,9 +469,274 @@ img {
   color: #1e90ff;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .nav-desktop {display: none;}
   .nav-tablet {display: block;}
+  .div-bouncing-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-1200;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-1200;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-1200;
+  }
+  
+  .div-bouncing-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
+  }
 }
 
-/*--------------------------- Phone ---------------------------*/
+@keyframes bounce-arrow-before-1200 {
+  from {
+    top: 0;
+  }
+  to {
+    top: 1vh;
+  }
+}
+
+@keyframes bounce-arrow-after-1200 {
+  from {
+    top: 3vh;
+  }
+  to {
+    top: 4vh;
+  }
+}
+
+/*--------------------------- Tablet --------------------------*/
+@media screen and (max-width: 992px) {}
+
+/*------------------------ Large Phone ------------------------*/
+@media screen and (max-width: 768px) {}
+
+/*------------------------ Phone ------------------------*/
+@media screen and (max-width: 576px) {
+  .div-bouncing-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-576;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-576;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-576;
+  }
+  
+  .div-bouncing-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
+  }
+}
+
+@keyframes bounce-arrow-before-576 {
+  from {
+    top: -1vh;
+  }
+  to {
+    top: 1vh;
+  }
+}
+
+@keyframes bounce-arrow-after-576 {
+  from {
+    top: 2vh;
+  }
+  to {
+    top: 4vh;
+  }
+}
+
+/*------------------------ Phone ------------------------*/
+@media screen and (max-width: 420px) {
+  .div-bouncing-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-420;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-420;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-420;
+  }
+  
+  .div-bouncing-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
+  }
+}
+
+@keyframes bounce-arrow-before-420 {
+  from {
+    top: -1vh;
+  }
+  to {
+    top: 1vh;
+  }
+}
+
+@keyframes bounce-arrow-after-420 {
+  from {
+    top: 2.2vh;
+  }
+  to {
+    top: 4.2vh;
+  }
+}
+
+/*--------------------- Small Phone ---------------------*/
+@media screen and (max-width: 360px) {
+  .div-bouncing-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-360;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-360;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-360;
+  }
+  
+  .div-bouncing-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
+  }
+}
+
+@keyframes bounce-arrow-before-360 {
+  from {
+    top: -1.5vh;
+  }
+  to {
+    top: 0.5vh;
+  }
+}
+
+@keyframes bounce-arrow-after-360 {
+  from {
+    top: 2.2vh;
+  }
+  to {
+    top: 4.2vh;
+  }
+}
+
+/*------------------ Extra Small Phone ------------------*/
+@media screen and (max-width: 320px) {
+  .div-bouncing-arrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-320;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-320;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-320;
+  }
+  
+  .div-bouncing-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    transform: translate(-50%) rotate(45deg);
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    border-radius: 4px;
+    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
+    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
+    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
+  }
+}
+
+@keyframes bounce-arrow-before-320 {
+  from {
+    top: -1.9vh;
+  }
+  to {
+    top: 0.1vh;
+  }
+}
+
+@keyframes bounce-arrow-after-320 {
+  from {
+    top: 1.1vh;
+  }
+  to {
+    top: 3.1vh;
+  }
+}
