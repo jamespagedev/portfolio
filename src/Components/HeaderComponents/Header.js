@@ -7,10 +7,12 @@ import NavTablet from './NavTablet.js';
 
 function Header() {
   return (
-    <header className="header">
-      <NavDesktop />
-      <NavTablet />
-      {/* <NavPhone /> */}
+    <header className="header-space-holder">
+      <div className="div-header-nav">
+        <NavDesktop />
+        <NavTablet />
+        {/* <NavPhone /> */}
+      </div>
     </header>
   );
 }

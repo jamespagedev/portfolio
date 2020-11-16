@@ -6,11 +6,24 @@ import { Link } from 'react-scroll';
 function Intro() {
   return (
     <div id="intro">
-      <div className="div-intro-background-window">
+      <div className="div-intro-window">
         <p>Greetings, my name is James Page and I'm a</p>
         <h1>Full Stack Web Developer</h1>
         <p>Building friendly and responsive web applications</p>
       </div>
+      {/* <div className="div-intro-window">
+        <div className="div-intro-window-child">
+        <p>Greetings,</p>
+        <p>my name is</p>
+        <p>James Page</p>
+        <p>and I'm a</p>
+        <h1>Full Stack</h1>
+        <h1>Web Developer</h1>
+        <p>Building</p>
+        <p>friendly responsive and web</p>
+        <p>applications</p>
+        </div>
+      </div> */}
       <Link
         activeClass="active"
         to={`about`}

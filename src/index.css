@@ -312,33 +312,41 @@ img {
 
 #intro {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
 }
 
-.div-intro-background-window {
+.header-space-holder {
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+
+.header-mobile-space-holder {
+  display: none;
+  width: 100%;
+  height: 43px;
+}
+
+.div-intro-window {
   display: flex;
-  position: relative;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   color: #ffffff;
 }
 
-.div-intro-background-window p:first-child {
-  margin: 21rem 0 1.5rem;
+.div-intro-window p:first-child {
+  margin: -8rem 0 1.5rem 0;
 }
 
-.div-intro-background-window p:last-child {
-  margin: 1.5rem 0 0;
-}
-
-.div-intro-background-window h1 {
-  font: 700 40px/1.2 Raleway, sans-serif;
+.div-intro-window h1 {
+  font: 700 4rem/1.2 Raleway, sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
-  margin: 0.5rem 0 0.5rem;
+  margin: 0 0 1.5rem 0;
 }
 
 .div-bouncing-arrow {
@@ -347,13 +355,11 @@ img {
   height: 100%;
 }
 
-
-
-.header {
+.div-header-nav {
   display: block;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 10;
   width: 100%;
   background-color: rgba(0,0,0,0.7);
 }
@@ -381,8 +387,65 @@ img {
 .a-nav-desktop-item:active {
   color: #1e90ff;
 }
+.nav-tablet {
+  display: none;
+  position: relative;
+  width: 100%;
+}
+.div-nav-tablet-row-one {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.div-nav-tablet-row-one {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.a-nav-tablet-item {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2rem;
+}
+.a-nav-tablet-item:active {
+  color: #1e90ff;
+}
 
-/*----------------------- Wide Desktop ------------------------*/
+.div-hamburger {
+  display: block;
+  width: 50px;
+  margin-left: auto;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.span-hamburger-top {
+  display: block;
+  position: relative;
+  background-color: rgba(255,255,255,0.8);
+  width: 3rem;
+  height: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+
+.span-hamburger-middle {
+  display: block;
+  background-color: rgba(255,255,255,0.8);
+  width: 3rem;
+  height: 0.3rem;
+  margin-bottom: 0.7rem;
+  visibility: hidden;
+}
+
+.span-hamburger-bottom {
+  display: block;
+  position: relative;
+  background-color: rgba(255,255,255,0.8);
+  width: 3rem;
+  height: 0.3rem;
+}
+
+/*-------------------- Extra Large Desktop --------------------*/
 @media(max-height: 3500px) 
 {
   .div-bouncing-arrow::before {
@@ -420,7 +483,7 @@ img {
 
 @keyframes bounce-arrow-before-3500 {
   from {
-    top: 0;
+    top: 0vh;
   }
   to {
     top: 2vh;
@@ -436,40 +499,25 @@ img {
   }
 }
 
+/*----------------------- Large Desktop -----------------------*/
+@media(max-height: 2600px) 
+{}
+
 /*-------------------------- Desktop --------------------------*/
-@media(max-height: 2200px) 
+@media(max-height: 2000px) 
+{}
+
+/*----------------------- Small Desktop -----------------------*/
+@media(max-height: 1500px) 
 {}
 
 /*------------------------ Large Tablet -----------------------*/
-.nav-tablet {
-  display: none;
-  position: relative;
-  width: 100%;
-}
-
-.div-nav-tablet-row-one {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.div-nav-tablet-row-one {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.a-nav-tablet-item {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 2rem;
-}
-
-.a-nav-tablet-item:active {
-  color: #1e90ff;
-}
-
 @media (max-width: 1200px) {
+  #intro {min-height: calc(100vh - 112px);}
+  .header-space-holder {height: 112px;}
+  .div-intro-window p:first-child {
+    margin: -19.2rem 0 1.5rem 0;
+  }
   .nav-desktop {display: none;}
   .nav-tablet {display: block;}
   .div-bouncing-arrow::before {
@@ -507,7 +555,7 @@ img {
 
 @keyframes bounce-arrow-before-1200 {
   from {
-    top: 0;
+    top: 0vh;
   }
   to {
     top: 1vh;
@@ -527,10 +575,27 @@ img {
 @media screen and (max-width: 992px) {}
 
 /*------------------------ Large Phone ------------------------*/
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  #intro {min-height: calc(100vh - 43px);}
+  .header-space-holder {display: none;}
+  .header-mobile-space-holder {display: block;}
+  .div-header-nav {text-align: end;}
+  .div-intro-window p {
+    font-size: 1.5rem;
+  }
+  .div-intro-window h1 {
+    font: 700 2.7rem/1.2 Raleway, sans-serif;
+  }
+}
 
-/*------------------------ Phone ------------------------*/
+/*--------------------------- Phone ---------------------------*/
 @media screen and (max-width: 576px) {
+  .div-intro-window p {
+    font-size: 1.4rem;
+  }
+  .div-intro-window h1 {
+    font: 700 1.9rem/1.2 Raleway, sans-serif;
+  }
   .div-bouncing-arrow::before {
     content: "";
     position: absolute;
@@ -584,6 +649,15 @@ img {
 
 /*------------------------ Phone ------------------------*/
 @media screen and (max-width: 420px) {
+  .div-intro-window-child {
+    margin-top: -2vh;
+  }
+  .div-intro-window p:first-child {
+    margin: 0 0 1.5rem 0;
+  }
+  .div-intro-window p:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
   .div-bouncing-arrow::before {
     content: "";
     position: absolute;
