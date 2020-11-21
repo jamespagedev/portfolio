@@ -145,7 +145,21 @@ img {
 .display-none {
   display: none;
 }
-/*-------------------------- Desktop --------------------------*/
+
+.display-flex-420 {
+  display: none!important;
+}
+.remove-flex-420 {
+  display: flex!important;
+}
+
+/*--------------------- Page Scroll-to IDs --------------------*/
+#intro {
+  position: relative;
+  min-height: calc(100vh - 56px);
+}
+
+/*----------------------- Global Desktop ----------------------*/
 .a-intro-bottom-click {
   position: absolute;
   z-index: 1;
@@ -158,13 +172,28 @@ img {
 .a-intro-bottom-click:hover {
   cursor: pointer;
 }
-.a-intro-bottom-click:hover .div-bouncing-arrow::before {
+.a-intro-bottom-click:hover .div-intro-bouncing-arrow::before {
   border-bottom: 5px solid rgba(0,0,0,0.7);
   border-right: 5px solid rgba(0,0,0,0.7);
 }
-.a-intro-bottom-click:hover .div-bouncing-arrow::after {
+.a-intro-bottom-click:hover .div-intro-bouncing-arrow::after {
   border-bottom: 5px solid rgba(0,0,0,0.7);
   border-right: 5px solid rgba(0,0,0,0.7);
+}
+
+.a-nav-desktop-item {
+  color: white;
+  text-decoration: none;
+  padding: 2rem;
+  transition: color 0.6s;
+  user-select: none;
+}
+.a-nav-desktop-item:hover {
+  color: #1e90ff;
+  cursor: pointer;
+}
+.a-nav-desktop-item:active {
+  color: #1e90ff;
 }
 
 .button-about-left-tab {
@@ -177,12 +206,10 @@ img {
   outline: none;
   user-select: none;
 }
-
 .button-about-left-tab:hover {
   background: rgba(30,144,255,0.4);
   cursor: pointer;
 }
-
 .button-about-left-tab-selected {
   background: #1e90ff;
   color: #000000;
@@ -193,7 +220,6 @@ img {
   outline: none;
   user-select: none;
 }
-
 .button-about-left-tab-selected:hover {
   cursor: pointer;
 }
@@ -210,7 +236,6 @@ img {
   padding: 5rem 1rem;
   width: 49.9%;
 }
-
 .div-about-left h1 {
   font-weight: 300;
   text-align: center;
@@ -222,14 +247,12 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .div-about-left-movies-content ul {
   width: 26rem;
   max-width: 26rem;
   height: 17rem;
   max-height: 17rem;
 }
-
 .div-about-left-movies-content ul li {
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -241,14 +264,12 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .div-about-left-music-content ul {
   width: 26rem;
   max-width: 26rem;
   height: 17rem;
   max-height: 17rem;
 }
-
 .div-about-left-music-content ul li {
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -260,14 +281,12 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .div-about-left-video-games-content ul {
   width: 26rem;
   max-width: 26rem;
   height: 17rem;
   max-height: 17rem;
 }
-
 .div-about-left-video-games-content ul li {
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -284,13 +303,48 @@ img {
   padding: 5rem;
   width: 49.9%;
 }
-
 .div-about-right h1 {
   font-weight: 300;
   text-align: center;
 }
 
-.div-left-triangle {
+.div-intro-bouncing-arrow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.div-intro-bouncing-arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%) rotate(45deg);
+  border-bottom: 4px solid #ffffff;
+  border-right: 4px solid #ffffff;
+  border-radius: 4px;
+  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
+  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
+  animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before;
+}
+.div-intro-bouncing-arrow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  transform: translate(-50%) rotate(45deg);
+  border-bottom: 4px solid #ffffff;
+  border-right: 4px solid #ffffff;
+  border-radius: 4px;
+  -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
+  -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
+  animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after;
+}
+
+.div-intro-left-triangle {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -300,7 +354,7 @@ img {
   border-right: 100vw solid transparent;
 }
 
-.div-right-triangle {
+.div-intro-right-triangle {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -310,23 +364,6 @@ img {
   border-left: 100vw solid transparent;
 }
 
-#intro {
-  position: relative;
-  min-height: calc(100vh - 56px);
-}
-
-.header-space-holder {
-  display: block;
-  width: 100%;
-  height: 56px;
-}
-
-.header-mobile-space-holder {
-  display: none;
-  width: 100%;
-  height: 43px;
-}
-
 .div-intro-window {
   display: flex;
   position: absolute;
@@ -334,7 +371,7 @@ img {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 5.6rem);
   color: #ffffff;
 }
 
@@ -349,10 +386,35 @@ img {
   margin: 0 0 1.5rem 0;
 }
 
-.div-bouncing-arrow {
+.div-header-hamburger {
+  display: block;
+  width: 50px;
+  margin-left: auto;
+  padding: 1rem;
+  cursor: pointer;
+}
+.div-header-hamburger span:first-child {
+  display: block;
   position: relative;
-  width: 100%;
-  height: 100%;
+  background-color: rgba(255,255,255,0.8);
+  width: 3rem;
+  height: 0.3rem;
+  margin-bottom: 0.7rem;
+}
+.div-header-hamburger span:nth-child(2) {
+  display: block;
+  background-color: rgba(255,255,255,0.8);
+  width: 3rem;
+  height: 0.3rem;
+  margin-bottom: 0.7rem;
+  visibility: hidden;
+}
+.div-header-hamburger span:last-child {
+  display: block;
+  position: relative;
+  background-color: rgba(255,255,255,0.8);
+  width: 3rem;
+  height: 0.3rem;
 }
 
 .div-header-nav {
@@ -364,6 +426,32 @@ img {
   background-color: rgba(0,0,0,0.7);
 }
 
+.div-nav-tablet-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.div-nav-tablet-row a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2rem;
+}
+.div-nav-tablet-row a:active {
+  color: #1e90ff;
+}
+
+.header-space-holder {
+  display: block;
+  width: 100%;
+  height: 56px;
+}
+
+.header-mobile-space-holder {
+  display: none;
+  width: 100%;
+  height: 4.3rem;
+}
+
 .nav-desktop {
   display: flex;
   position: relative;
@@ -371,117 +459,13 @@ img {
   width: 100%;
 }
 
-.a-nav-desktop-item {
-  color: white;
-  text-decoration: none;
-  padding: 2rem;
-  transition: color 0.6s;
-  user-select: none;
-}
-
-.a-nav-desktop-item:hover {
-  color: #1e90ff;
-  cursor: pointer;
-}
-
-.a-nav-desktop-item:active {
-  color: #1e90ff;
-}
 .nav-tablet {
   display: none;
   position: relative;
   width: 100%;
 }
-.div-nav-tablet-row-one {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-.div-nav-tablet-row-one {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-}
-.a-nav-tablet-item {
-  color: #ffffff;
-  text-decoration: none;
-  padding: 2rem;
-}
-.a-nav-tablet-item:active {
-  color: #1e90ff;
-}
 
-.div-hamburger {
-  display: block;
-  width: 50px;
-  margin-left: auto;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.span-hamburger-top {
-  display: block;
-  position: relative;
-  background-color: rgba(255,255,255,0.8);
-  width: 3rem;
-  height: 0.3rem;
-  margin-bottom: 0.7rem;
-}
-
-.span-hamburger-middle {
-  display: block;
-  background-color: rgba(255,255,255,0.8);
-  width: 3rem;
-  height: 0.3rem;
-  margin-bottom: 0.7rem;
-  visibility: hidden;
-}
-
-.span-hamburger-bottom {
-  display: block;
-  position: relative;
-  background-color: rgba(255,255,255,0.8);
-  width: 3rem;
-  height: 0.3rem;
-}
-
-/*-------------------- Extra Large Desktop --------------------*/
-@media(max-height: 3500px) 
-{
-  .div-bouncing-arrow::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    transform: translate(-50%) rotate(45deg);
-    border-bottom: 4px solid #ffffff;
-    border-right: 4px solid #ffffff;
-    border-radius: 4px;
-    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-3500;
-    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-3500;
-    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-3500;
-  }
-  
-  .div-bouncing-arrow::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 25px;
-    height: 25px;
-    transform: translate(-50%) rotate(45deg);
-    border-bottom: 4px solid #ffffff;
-    border-right: 4px solid #ffffff;
-    border-radius: 4px;
-    -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-3500;
-    -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-3500;
-    animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-3500;
-  }
-}
-
-@keyframes bounce-arrow-before-3500 {
+@keyframes bounce-arrow-before {
   from {
     top: 0vh;
   }
@@ -489,8 +473,7 @@ img {
     top: 2vh;
   }
 }
-
-@keyframes bounce-arrow-after-3500 {
+@keyframes bounce-arrow-after {
   from {
     top: 3vh;
   }
@@ -498,6 +481,10 @@ img {
     top: 5vh;
   }
 }
+
+/*-------------------- Extra Large Desktop --------------------*/
+@media(max-height: 3500px) 
+{}
 
 /*----------------------- Large Desktop -----------------------*/
 @media(max-height: 2600px) 
@@ -514,13 +501,7 @@ img {
 /*------------------------ Large Tablet -----------------------*/
 @media (max-width: 1200px) {
   #intro {min-height: calc(100vh - 112px);}
-  .header-space-holder {height: 112px;}
-  .div-intro-window p:first-child {
-    margin: -19.2rem 0 1.5rem 0;
-  }
-  .nav-desktop {display: none;}
-  .nav-tablet {display: block;}
-  .div-bouncing-arrow::before {
+  .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
     top: 0;
@@ -536,7 +517,7 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-1200;
   }
   
-  .div-bouncing-arrow::after {
+  .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
     top: 0;
@@ -551,6 +532,11 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
   }
+  .div-intro-window {height: calc(100vh - 11.2rem);}
+  .div-intro-window p:first-child {margin: -13.5rem 0 1.5rem 0;}
+  .header-space-holder {height: 112px;}
+  .nav-desktop {display: none;}
+  .nav-tablet {display: block;}
 }
 
 @keyframes bounce-arrow-before-1200 {
@@ -577,26 +563,32 @@ img {
 /*------------------------ Large Phone ------------------------*/
 @media screen and (max-width: 768px) {
   #intro {min-height: calc(100vh - 43px);}
-  .header-space-holder {display: none;}
-  .header-mobile-space-holder {display: block;}
-  .div-header-nav {text-align: end;}
-  .div-intro-window p {
-    font-size: 1.5rem;
+  .div-intro-window {
+    height: calc(100vh - 4.3rem);
   }
   .div-intro-window h1 {
     font: 700 2.7rem/1.2 Raleway, sans-serif;
   }
+  .div-intro-window p {
+    font-size: 1.5rem;
+  }
+  .div-intro-window p:first-child {
+    margin: -4rem 0 1.5rem 0;
+  }
+  .div-header-nav {text-align: end;}
+  .header-space-holder {display: none;}
+  .header-mobile-space-holder {display: block;}
 }
 
 /*--------------------------- Phone ---------------------------*/
 @media screen and (max-width: 576px) {
-  .div-intro-window p {
-    font-size: 1.4rem;
+  .display-flex-420 {
+    display: flex!important;
   }
-  .div-intro-window h1 {
-    font: 700 1.9rem/1.2 Raleway, sans-serif;
+  .remove-flex-420 {
+    display: none!important;
   }
-  .div-bouncing-arrow::before {
+  .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
     top: 0;
@@ -612,7 +604,7 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-576;
   }
   
-  .div-bouncing-arrow::after {
+  .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
     top: 0;
@@ -626,6 +618,15 @@ img {
     -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
+  }
+  .div-intro-window {
+    height: calc(80vh - 4.3rem);
+  }
+  .div-intro-window p:not(:last-child) {
+    margin: 0 0 2rem 0;
+  }
+  .div-intro-window h1 {
+    margin: 0 0 2rem 0;
   }
 }
 
@@ -649,16 +650,7 @@ img {
 
 /*------------------------ Phone ------------------------*/
 @media screen and (max-width: 420px) {
-  .div-intro-window-child {
-    margin-top: -2vh;
-  }
-  .div-intro-window p:first-child {
-    margin: 0 0 1.5rem 0;
-  }
-  .div-intro-window p:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
-  .div-bouncing-arrow::before {
+  .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
     top: 0;
@@ -674,7 +666,7 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-420;
   }
   
-  .div-bouncing-arrow::after {
+  .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
     top: 0;
@@ -711,7 +703,7 @@ img {
 
 /*--------------------- Small Phone ---------------------*/
 @media screen and (max-width: 360px) {
-  .div-bouncing-arrow::before {
+  .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
     top: 0;
@@ -727,7 +719,7 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-360;
   }
   
-  .div-bouncing-arrow::after {
+  .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
     top: 0;
@@ -746,10 +738,10 @@ img {
 
 @keyframes bounce-arrow-before-360 {
   from {
-    top: -1.5vh;
+    top: -1vh;
   }
   to {
-    top: 0.5vh;
+    top: 1vh;
   }
 }
 
@@ -764,7 +756,7 @@ img {
 
 /*------------------ Extra Small Phone ------------------*/
 @media screen and (max-width: 320px) {
-  .div-bouncing-arrow::before {
+  .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
     top: 0;
@@ -780,7 +772,7 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-320;
   }
   
-  .div-bouncing-arrow::after {
+  .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
     top: 0;
@@ -795,22 +787,28 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
   }
+  .div-intro-window p {
+    font-size: 1.4rem;
+  }
+  .div-intro-window h1 {
+    font: 700 1.9rem/1.2 Raleway, sans-serif;
+  }
 }
 
 @keyframes bounce-arrow-before-320 {
   from {
-    top: -1.9vh;
+    top: -1vh;
   }
   to {
-    top: 0.1vh;
+    top: 1vh;
   }
 }
 
 @keyframes bounce-arrow-after-320 {
   from {
-    top: 1.1vh;
+    top: 2.2vh;
   }
   to {
-    top: 3.1vh;
+    top: 4.2vh;
   }
 }

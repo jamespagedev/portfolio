@@ -9,7 +9,7 @@ import { hobbyTabIds } from '../Globals/index.js';
 function About() {
   const [hobbyTabIdSelected, setHobbyTabIdSelected] = useState(hobbyTabIds.movies);
   return(
-    <div id="about" className="div-about">
+    <div id="about" className="div-about" style={{display: "none"}}>
       <LeftSide hobbyTabIdSelected={hobbyTabIdSelected} setHobbyTabIdSelected={setHobbyTabIdSelected} hobbyTabIds={hobbyTabIds} />
       <div className="div-about-right">
         <h1>Education</h1>
