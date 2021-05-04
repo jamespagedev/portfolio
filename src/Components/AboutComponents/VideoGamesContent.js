@@ -1,93 +1,93 @@
 import React from 'react';
 
 const VideoGamesContent = props => {
-  const { isVideoGamesSelected } = props;
+  const { isVideoGamesSelected, gamesVerticlePosition } = props;
 
   return (
-    <div className={isVideoGamesSelected ? "div-about-left-video-games-content" : "display-none"}>
-      <ul>
-        <li>(NES) Final Fantasy</li>
-        <li>(NES) Dragon Warrior</li>
-        <li>(NES) Zelda I and II</li>
-        <li>(NES) Mega Man Series</li>
-        <li>(NES) Crystalis</li>
+    <div className={isVideoGamesSelected ? "div-about-fun-content-lists" : "display-none"} id="games-content" style={{top: `-${gamesVerticlePosition}px`}}>
+      <ul id="games-content-list-default">
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Final Fantasy</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Dragon Warrior</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Zelda I and II</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Mega Man Series</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Crystalis</p></div></li>
       </ul>
       <ul>
-        <li>(NES) Metroid</li>
-        <li>(NES) TMNT II</li>
-        <li>(NES) Double Dragon II</li>
-        <li>(NES) Contra</li>
-        <li>(NES) 1943</li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Metroid</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> TMNT II</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Double Dragon II</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Contra</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> 1943</p></div></li>
       </ul>
       <ul>
-        <li>(NES) Punch-out</li>
-        <li>(NES) Castlevania II - Simon's Quest</li>
-        <li>(NES) Ninja Gaiden II</li>
-        <li>(NES) Battletoads</li>
-        <li>(NES) Mario Series</li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Punch-out</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Castlevania II - Simon's Quest</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Ninja Gaiden II</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Battletoads</p></div></li>
+        <li><div className=""><p><span className="span-nes-logo">NES</span> Mario Series</p></div></li>
       </ul>
       <ul>
-        <li>(SNES) Chrono Trigger</li>
-        <li>(SNES) Secret Of Mana</li>
-        <li>(SNES) Tales Of Phantasia</li>
-        <li>(SNES) Secrewt Of Evermore</li>
-        <li>(SNES) Lagoon</li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Chrono Trigger</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Secret Of Mana</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Tales Of Phantasia</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Secret Of Evermore</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Lagoon</p></div></li>
       </ul>
       <ul>
-        <li>(SNES) Super Mario Cart</li>
-        <li>(SNES) R-Type</li>
-        <li>(SNES) Street Fighter 2 Turbo</li>
-        <li>(SNES) Final Fight 2</li>
-        <li>(SNES) F-Zero</li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Super Mario Cart</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> R-Type</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Street Fighter 2 Turbo</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Final Fight 2</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> F-Zero</p></div></li>
       </ul>
       <ul>
-        <li>(SNES) Legend Of Zelda - Link To The Past</li>
-        <li>(SNES) Final Fantasy II (IV JP)</li>
-        <li>(SNES) Final Fantasy III (VI JP)</li>
-        <li>(SNES) TMNT 4</li>
-        <li>(SNES) Super Off-Road</li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Legend Of Zelda - Link To The Past</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Final Fantasy II (IV JP)</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Final Fantasy III (VI JP)</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> TMNT 4</p></div></li>
+        <li><div className=""><p className="p-snes-logo"><span>S</span><span>N</span><span>E</span><span>S</span> Super Off-Road</p></div></li>
       </ul>
       <ul>
-        <li>(Sega-CD) Lunar The Silver Star</li>
-        <li>(Sega-CD) Lunar Eternal Blue</li>
-        <li>(Sega) Shining Force 1 and 2</li>
-        <li>(Sega) Mortal Combat</li>
-        <li>(Sega) Road Rash 2</li>
+        <li><div className="div-sega-cd-logo"><p>Lunar The Silver Star</p></div></li>
+        <li><div className="div-sega-cd-logo"><p>Lunar Eternal Blue</p></div></li>
+        <li><div className="div-sega-logo"><p>Shining Force 1 and 2</p></div></li>
+        <li><div className="div-sega-logo"><p>Mortal Combat</p></div></li>
+        <li><div className="div-sega-logo"><p>Road Rash 2</p></div></li>
       </ul>
       <ul>
-        <li>(Ps1) Final Fantasy 7</li>
-        <li>(Ps1) Xenogears</li>
-        <li>(Ps1) Star Ocean The Second Story</li>
-        <li>(Ps1) Final Fantasy Tactics (Also WOTL Remake for PSP)</li>
-        <li>(Ps1) Legend Of Dragoon</li>
+        <li><div className="div-ps-one-logo"><p>Final Fantasy 7</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Xenogears</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Star Ocean The Second Story</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Final Fantasy Tactics</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Legend Of Dragoon</p></div></li>
       </ul>
       <ul>
-        <li>(PS1) Parasite Eve</li>
-        <li>(PS1) Metal Gear Solid</li>
-        <li>(PS1) Silent Hill</li>
-        <li>(PS1) Resident Evil 2</li>
-        <li>(PS1) Omegaboost</li>
+        <li><div className="div-ps-one-logo"><p>Parasite Eve</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Metal Gear Solid</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Silent Hill</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Resident Evil 2</p></div></li>
+        <li><div className="div-ps-one-logo"><p>Omegaboost</p></div></li>
       </ul>
       <ul>
-        <li>(PS2) Grandia 2</li>
-        <li>(PS2) Ace Combat 04: Shattered Skies</li>
-        <li>(Neo Geo/Arcade) SAMURAI SHODOWN II</li>
-        <li>(Neo Geo/Arcade) Metal Slug</li>
-        <li>(Arcade) The Simpsons</li>
+        <li><div className="div-ps-two-logo"><p>Grandia 2</p></div></li>
+        <li><div className="div-ps-two-logo"><p>Ace Combat 04: Shattered Skies</p></div></li>
+        <li><div className="div-neo-geo-logo"><p>SAMURAI SHODOWN II</p></div></li>
+        <li><div className="div-neo-geo-logo"><p>Metal Slug</p></div></li>
+        <li><div className="div-arcade-logo"><p>The Simpsons</p></div></li>
       </ul>
       <ul>
-        <li>(Arcade) Soul Edge</li>
-        <li>(Arcade) Knights Of The Round</li>
-        <li>(Arcade) X-Men</li>
-        <li>(Arcade) The House Of The Dead 2</li>
-        <li>(Arcade) Time Crisis</li>
+        <li><div className="div-arcade-logo"><p>Soul Edge</p></div></li>
+        <li><div className="div-arcade-logo"><p>Knights Of The Round</p></div></li>
+        <li><div className="div-arcade-logo"><p>X-Men</p></div></li>
+        <li><div className="div-arcade-logo"><p>The House Of The Dead 2</p></div></li>
+        <li><div className="div-arcade-logo"><p>Time Crisis</p></div></li>
       </ul>
       <ul>
-        <li>(PC) Lineage 2 (2003 - 2008)</li>
-        <li>(PC) Ragnarok Online (2001 - 2003)</li>
-        <li>(PC) Counter String (1.3 - 1.4)</li>
-        <li>(PC) Deus Ex 2000 (Also With Online Patch)</li>
-        <li>(PC) Total Annihlation</li>
+        <li><div className="div-pc-gamer-logo"><p>Lineage 2 (2003 - 2008)</p></div></li>
+        <li><div className="div-pc-gamer-logo"><p>Ragnarok Online (2001 - 2003)</p></div></li>
+        <li><div className="div-pc-gamer-logo"><p>Counter String (1.3 - 1.4)</p></div></li>
+        <li><div className="div-pc-gamer-logo"><p>Deus Ex 2000 (Also With Online Patch)</p></div></li>
+        <li><div className="div-pc-gamer-logo"><p>Total Annihlation</p></div></li>
       </ul>
     </div>
   )
