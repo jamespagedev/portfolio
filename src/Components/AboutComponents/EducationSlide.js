@@ -26,7 +26,7 @@ const EducationSlide = props => {
       </div>
       <div className="div-about-carousel-education-row">
         <div style={{borderRight: "1px solid #00ffff", borderTop: "1px solid #00ffff"}}>
-          <h2>Lambda&nbsp;School&nbsp;Badge</h2>
+          <h2>Full Stack &amp; CS Bootcamp</h2>
           <img src={LambdaFswBadge} alt="lambda fsw badge" className="img-about-carousel-education-badge" />
         </div>
         <div style={{borderLeft: "1px solid #00ffff", borderTop: "1px solid #00ffff"}}>

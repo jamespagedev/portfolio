@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 
 // components
 import EducationSlide from './EducationSlide.js';
-import CareerSlide from './CareerSlide.js';
+import HistorySlide from './HistorySlide.js';
 import FunSlide from './FunSlide.js';
 
 // Globals
@@ -109,7 +109,7 @@ const AboutCarousel = props => {
               <EducationSlide next={next} prev={prev} />
             </div>
             <div className="div-carousel-slide" style={{width: `${slideWidth}px`}}>
-              <CareerSlide next={next} prev={prev} />
+              <HistorySlide next={next} prev={prev} />
             </div>
             <div className="div-carousel-slide" style={{width: `${slideWidth}px`}}>
               <FunSlide

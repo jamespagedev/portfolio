@@ -7,8 +7,8 @@ function About() {
   return(
     <div id="about" className="div-about">
       <AboutCarousel
-        containerWidth={1340}
-        slideWidth={1340}
+        containerWidth={860}
+        slideWidth={860}
       />
     </div>
   );
