@@ -9,7 +9,7 @@ const EducationSlide = props => {
 
   return (
     <div className="div-about-carousel-education-slide">
-      <div className="div-carousel-buttons">
+      <div className="div-about-carousel-buttons">
         <button className="front-to-back" onClick={prev}>&gt;&gt;</button>
         <button className="backward" onClick={next}>&gt;</button>
       </div>

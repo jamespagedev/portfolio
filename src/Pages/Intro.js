@@ -8,7 +8,7 @@ import ArrowBottomArea from '../Components/IntroComponents/ArrowBottomArea';
 
 function Intro() {
   return (
-    <div id="intro">
+    <div id="intro" className="div-intro">
       <WindowLarge />
       <WindowSmall />
       <ArrowBottomArea />

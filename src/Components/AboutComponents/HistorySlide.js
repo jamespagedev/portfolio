@@ -7,7 +7,7 @@ const HistorySlide = props => {
 
   return (
     <div className="div-about-carousel-history-slide">
-      <div className="div-carousel-buttons">
+      <div className="div-about-carousel-buttons">
         <button className="forward" onClick={prev}>&lt;</button>
         <button className="backward" onClick={next}>&gt;</button>
       </div>

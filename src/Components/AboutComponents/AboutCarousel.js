@@ -102,61 +102,55 @@ const AboutCarousel = props => {
   // render
   return (
     <div className="div-about-carousel">
-      <div className="content-container">
-        <div className="div-carousel-outer">
-          <div className="div-carousel-inner" style={{width: `${maxSlides * containerWidth}px`, right: `${containerWidth * slideIndex - containerWidth}px`}}>
-            <div className="div-carousel-slide" style={{width: `${slideWidth}px`}}>
-              <EducationSlide next={next} prev={prev} />
-            </div>
-            <div className="div-carousel-slide" style={{width: `${slideWidth}px`}}>
-              <HistorySlide next={next} prev={prev} />
-            </div>
-            <div className="div-carousel-slide" style={{width: `${slideWidth}px`}}>
-              <FunSlide
-                next={next}
-                prev={prev}
-                hobbyTabIdSelected={hobbyTabIdSelected}
-                handleChangeTab={handleChangeTab}
-                moviesVerticlePosition={moviesVerticlePosition}
-                musicVerticlePosition={musicVerticlePosition}
-                gamesVerticlePosition={gamesVerticlePosition}
-              />
-            </div>
+      <div className="div-about-carousel-window">
+        <div className="div-about-carousel-inner" style={{width: `${maxSlides * containerWidth}px`, right: `${containerWidth * slideIndex - containerWidth}px`}}>
+          <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
+            <EducationSlide next={next} prev={prev} />
           </div>
-          {hasScrollUpDown && 
-            <div className="div-about-fun-buttons">
-              { ((hobbyTabIdSelected === hobbyTabIds.movies && moviesVerticlePosition === 0) || (hobbyTabIdSelected === hobbyTabIds.music && musicVerticlePosition === 0) || (hobbyTabIdSelected === hobbyTabIds.videoGames && gamesVerticlePosition === 0)) ?
-                <button className="down-to-bottom" onClick={scrollUp}><span>&#8964;</span><span>&#8964;</span></button> :
-                <button className="up" onClick={scrollUp}><span>&#8964;</span></button>
-              }
-              {console.log("musicVerticlePosition", musicVerticlePosition)}
-              {console.log("musicContentResolution.viewHeight", musicContentResolution.viewHeight)}
-              {console.log("musicContentResolution.totalHeight", musicContentResolution.totalHeight)}
-              {console.log("musicContentResolution", musicContentResolution)}
-              { 
-                (
-                  ( 
-                    hobbyTabIdSelected === hobbyTabIds.movies &&
-                    moviesVerticlePosition !== 0 &&
-                    moviesVerticlePosition + moviesContentResolution.viewHeight >= moviesContentResolution.totalHeight
-                  ) || 
-                  (
-                    hobbyTabIdSelected === hobbyTabIds.music &&
-                    musicVerticlePosition !== 0 &&
-                    musicVerticlePosition + musicContentResolution.viewHeight >= musicContentResolution.totalHeight
-                  ) || 
-                  (
-                    hobbyTabIdSelected === hobbyTabIds.videoGames && 
-                    gamesVerticlePosition !== 0 && 
-                    gamesVerticlePosition + gamesContentResolution.viewHeight >= gamesContentResolution.totalHeight
-                  )
-                ) ?
-                <button className="up-to-top" onClick={scrollDown}><span>&#8964;</span><span>&#8964;</span></button> :
-                <button className="down" onClick={scrollDown}><span>&#8964;</span></button>
-              }
-            </div>
-          }
+          <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
+            <HistorySlide next={next} prev={prev} />
+          </div>
+          <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
+            <FunSlide
+              next={next}
+              prev={prev}
+              hobbyTabIdSelected={hobbyTabIdSelected}
+              handleChangeTab={handleChangeTab}
+              moviesVerticlePosition={moviesVerticlePosition}
+              musicVerticlePosition={musicVerticlePosition}
+              gamesVerticlePosition={gamesVerticlePosition}
+            />
+          </div>
         </div>
+        {hasScrollUpDown && 
+          <div className="div-about-fun-buttons">
+            { ((hobbyTabIdSelected === hobbyTabIds.movies && moviesVerticlePosition === 0) || (hobbyTabIdSelected === hobbyTabIds.music && musicVerticlePosition === 0) || (hobbyTabIdSelected === hobbyTabIds.videoGames && gamesVerticlePosition === 0)) ?
+              <button className="down-to-bottom" onClick={scrollUp}><span>&#8964;</span><span>&#8964;</span></button> :
+              <button className="up" onClick={scrollUp}><span>&#8964;</span></button>
+            }
+            { 
+              (
+                ( 
+                  hobbyTabIdSelected === hobbyTabIds.movies &&
+                  moviesVerticlePosition !== 0 &&
+                  moviesVerticlePosition + moviesContentResolution.viewHeight >= moviesContentResolution.totalHeight
+                ) || 
+                (
+                  hobbyTabIdSelected === hobbyTabIds.music &&
+                  musicVerticlePosition !== 0 &&
+                  musicVerticlePosition + musicContentResolution.viewHeight >= musicContentResolution.totalHeight
+                ) || 
+                (
+                  hobbyTabIdSelected === hobbyTabIds.videoGames && 
+                  gamesVerticlePosition !== 0 && 
+                  gamesVerticlePosition + gamesContentResolution.viewHeight >= gamesContentResolution.totalHeight
+                )
+              ) ?
+              <button className="up-to-top" onClick={scrollDown}><span>&#8964;</span><span>&#8964;</span></button> :
+              <button className="down" onClick={scrollDown}><span>&#8964;</span></button>
+            }
+          </div>
+        }
       </div>
     </div>
   )

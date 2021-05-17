@@ -1,17 +1,36 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
 function NavTablet() {
   return (
     <nav className="nav-tablet">
       <div className="div-nav-tablet-row">
-        <a href="/#">Intro</a>
-        <a href="/#">About</a>
-        <a href="/#">Projects</a>
+        <Link
+          to="intro"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="header-nav-link"
+          activeClass="header-nav-link--active"
+        >
+          Intro
+        </Link>
+        <Link
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="header-nav-link"
+          activeClass="header-nav-link--active"
+        >
+          About
+        </Link>
+        <a href="/#" className="header-nav-link">Projects</a>
       </div>
       <div className="div-nav-tablet-row">
-        <a href="/#">Skills</a>
-        <a href="/#">Resumes</a>
-        <a href="/#">Contact</a>
+        <a href="/#" className="header-nav-link">Skills</a>
+        <a href="/#" className="header-nav-link">Resumes</a>
+        <a href="/#" className="header-nav-link">Contact</a>
       </div>
     </nav>
   );

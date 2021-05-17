@@ -5,31 +5,29 @@ function NavDesktop() {
   return (
     <nav className="nav-desktop">
       <Link
-        activeClass="active"
-        to={`intro`}
+        to="intro"
         spy={true}
         smooth={true}
-        offset={-80}
         duration={500}
-        className="a-nav-desktop-item"
+        className="header-nav-link"
+        activeClass="header-nav-link--active"
       >
         Intro
       </Link>
       <Link
-        activeClass="active"
-        to={`about`}
+        to="about"
         spy={true}
         smooth={true}
-        offset={-80}
         duration={500}
-        className="a-nav-desktop-item"
+        className="header-nav-link"
+        activeClass="header-nav-link--active"
       >
         About
       </Link>
-      <a href="/#" className="a-nav-desktop-item">Projects</a>
-      <a href="/#" className="a-nav-desktop-item">Skills</a>
-      <a href="/#" className="a-nav-desktop-item">Resumes</a>
-      <a href="/#" className="a-nav-desktop-item">Contact</a>
+      <a href="/#" className="header-nav-link">Projects</a>
+      <a href="/#" className="header-nav-link">Skills</a>
+      <a href="/#" className="header-nav-link">Resumes</a>
+      <a href="/#" className="header-nav-link">Contact</a>
     </nav>
   );
 }

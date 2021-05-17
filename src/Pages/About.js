@@ -6,10 +6,12 @@ import AboutCarousel from '../Components/AboutComponents/AboutCarousel.js';
 function About() {
   return(
     <div id="about" className="div-about">
-      <AboutCarousel
-        containerWidth={860}
-        slideWidth={860}
-      />
+      <div className="div-about-content-container">
+        <AboutCarousel
+          containerWidth={860}
+          slideWidth={860}
+        />
+      </div>
     </div>
   );
 }

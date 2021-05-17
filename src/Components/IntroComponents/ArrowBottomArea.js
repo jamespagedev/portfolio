@@ -5,11 +5,10 @@ import { Link } from 'react-scroll';
 function ArrowBottomArea() {
   return (
     <Link
-      activeClass="active"
       to={`about`}
       spy={true}
       smooth={true}
-      offset={-30}
+      offset={-56}
       duration={500}
       className="a-intro-bottom-click"
     >

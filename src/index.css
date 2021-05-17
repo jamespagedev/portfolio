@@ -1,4 +1,6 @@
-/*--------------------------- Reset ---------------------------*/
+/*=============================================================*/
+/*=========================== Reset ===========================*/
+/*=============================================================*/
 html, body, div, span, applet, 
 object, iframe, blockquote, pre,
 abbr, acronym, address, big, cite, code,
@@ -19,7 +21,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-
 h1 {
   margin: 0;
   padding: 0;
@@ -27,7 +28,6 @@ h1 {
   font-size: 3.2rem;
   vertical-align: baseline;
 }
-
 h2 {
   margin: 0;
   padding: 0;
@@ -35,7 +35,6 @@ h2 {
   font-size: 2.4rem;
   vertical-align: baseline;
 }
-
 h3 {
   margin: 0;
   padding: 0;
@@ -43,7 +42,6 @@ h3 {
   font-size: 1.872rem;
   vertical-align: baseline;
 }
-
 h4, p, a {
   margin: 0;
   padding: 0;
@@ -51,7 +49,6 @@ h4, p, a {
   font-size: 1.6rem;
   vertical-align: baseline;
 }
-
 a:link {
   color: (internal value);
 }
@@ -64,7 +61,6 @@ a:link:active {
 a:visited:active {
   color: (internal value);
 }
-
 h5 {
   margin: 0;
   padding: 0;
@@ -72,7 +68,6 @@ h5 {
   font-size: 1.328rem;
   vertical-align: baseline;
 }
-
 h6 {
   margin: 0;
   padding: 0;
@@ -85,7 +80,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-
 body {
   line-height: 1;
 }
@@ -97,12 +91,10 @@ q:before, q:after {
   content: '';
   content: none;
 }
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 html,
 body,
 #root {
@@ -115,12 +107,10 @@ body,
   font-size: 62.5%;
   min-height: 100%;
 }
-
 *, *::before, *::after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
-
 img {
   width: 100%;
 }
@@ -135,7 +125,9 @@ img {
        url('./fonts/press-start-2-p-regular.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
-/*-------------------------- Globals --------------------------*/
+/*=============================================================*/
+/*========================== Globals ==========================*/
+/*=============================================================*/
 .app {
   display: flex;
   flex-direction: column;
@@ -151,58 +143,18 @@ img {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
-.content-container {
-  display: block;
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
 .display-none {
-  display: none;
+  display: none!important;
 }
-
 .display-flex-420 {
   display: none!important;
 }
 .remove-flex-420 {
   display: flex!important;
 }
-
-/*--------------------- Page Scroll-to IDs --------------------*/
-#intro {
-  position: relative;
-  min-height: calc(100vh - 56px);
-}
-/*--------------------------- Header --------------------------*/
-.header-space-holder {
-  display: block;
-  width: 100%;
-  height: 56px;
-}
-.nav-desktop {
-  display: flex;
-  position: relative;
-  justify-content: space-around;
-  width: 100%;
-}
-.a-nav-desktop-item {
-  color: white;
-  text-decoration: none;
-  padding: 2rem;
-  transition: color 0.6s;
-  user-select: none;
-}
-.a-nav-desktop-item:hover {
-  color: #1e90ff;
-  cursor: pointer;
-}
-.a-nav-desktop-item:active {
-  color: #1e90ff;
-}
-
+/*=============================================================*/
+/*=========================== Header ==========================*/
+/*=============================================================*/
 .div-header-nav {
   display: block;
   position: fixed;
@@ -211,18 +163,71 @@ img {
   width: 100%;
   background-color: rgba(0,0,0,0.7);
 }
-
-.header-mobile-space-holder {
-  display: none;
+.nav-desktop {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
   width: 100%;
-  height: 4.3rem;
 }
+.header-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 2rem;
+  transition: color 0.6s;
+  user-select: none;
+}
+.header-nav-link:hover {
+  color: #1e90ff;
+  cursor: pointer;
+}
+.header-nav-link--active {
+  color: #1e90ff;
+}
+
+/*--------------------------- mobile --------------------------*/
 .nav-tablet {
   display: none;
   position: relative;
   width: 100%;
 }
-/*--------------------------- Intro ---------------------------*/
+.nav-phone {
+  display: none;
+  position: relative;
+  width: 100%;
+}
+
+/*=============================================================*/
+/*=========================== Pages ===========================*/
+/*=============================================================*/
+
+/*=========================== Intro ===========================*/
+.div-intro {
+  position: relative;
+  min-height: 100vh;
+}
+.div-intro-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  color: #ffffff;
+}
+.div-intro-content-container {
+  display: block;
+  width: 100%;
+  max-width: 768px;
+  padding: 0 9px;
+  margin: -10% auto 0;
+  text-align: center;
+}
+.div-intro-content-container h1 {
+  font: 700 4rem/1.2 Raleway, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 1.5rem 0;
+}
 .a-intro-bottom-click {
   position: absolute;
   z-index: 1;
@@ -299,27 +304,9 @@ img {
   border-left: 100vw solid transparent;
 }
 
-.div-intro-window {
-  display: flex;
-  position: absolute;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: calc(100vh - 5.6rem);
-  color: #ffffff;
-}
 
-.div-intro-window p:first-child {
-  margin: -8rem 0 1.5rem 0;
-}
 
-.div-intro-window h1 {
-  font: 700 4rem/1.2 Raleway, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  margin: 0 0 1.5rem 0;
-}
+
 @keyframes bounce-arrow-before {
   from {
     top: 0vh;
@@ -336,7 +323,52 @@ img {
     top: 5vh;
   }
 }
-/*--------------------------- About ---------------------------*/
+
+/*=========================== About ===========================*/
+.div-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 12px;
+  Color: #ffffff;
+  background-image: url('./img/blue-waves-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.div-about-content-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1024px;
+  padding: 0 12px;
+}
+.div-about-carousel {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 2rem;
+}
+.div-about-carousel-window {
+  overflow: hidden;
+  max-width: 860px; /* 140px less than div-about-carousel */
+  height: 790px;
+  margin: 0 auto;
+}
+.div-about-carousel-inner {
+  display: flex;
+  position: relative;
+  top: -40px;
+  transition: right 0.5s ease-in-out;
+}
+.div-about-carousel-slide {
+  display: block;
+}
 .button-about-fun-tab {
   background: none;
   color: #191970;
@@ -369,15 +401,7 @@ img {
   cursor: pointer;
 }
 
-.div-about {
-  display: block;
-  width: 100%;
-  padding: 40px 12px;
-  Color: #ffffff;
-  background-image: url('./img/blue-waves-background.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .div-about-carousel-education-slide {
   display: flex;
   flex-direction: column;
@@ -743,17 +767,8 @@ img {
   background-size: 33px 23px;
   background-repeat: no-repeat;
 }
-.div-about-carousel {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.5);
-  border-radius: 2rem;
-}
-.div-carousel-buttons {
+
+.div-about-carousel-buttons {
   position: relative;
   top: 48px;
   display: flex;
@@ -762,7 +777,7 @@ img {
   max-width: 520px;
   margin: 0 auto;
 }
-.div-carousel-buttons button {
+.div-about-carousel-buttons button {
   font-size: 3rem;
   padding: 1rem 2rem;
   color: #ffffff;
@@ -772,54 +787,30 @@ img {
   outline: none;
   cursor: pointer;
 }
-.div-carousel-buttons button:hover {
+.div-about-carousel-buttons button:hover {
   color: #0087ce;
   background-color: #ffffff;
 }
-.div-carousel-inner {
-  display: flex;
-  position: relative;
-  top: -40px;
-  transition: right 0.5s ease-in-out;
-}
-.div-carousel-outer {
-  overflow: hidden;
-  max-width: 860px; /* content-container - 100 */
-  height: 790px;
-  margin: 0 auto;
-}
-.div-carousel-slide {
-  display: block;
-}
-/* ---------------------------------------------------------- */
 
+/*=============================================================*/
+/*===================== Responsive Design =====================*/
+/*=============================================================*/
 
+/*============================ 3500 ===========================*/
+/* @media(max-width: 3500px) {} */
 
-/*-------------------- Extra Large Desktop --------------------*/
-@media(max-width: 3500px) 
-{}
+/*============================ 2600 ===========================*/
+/* @media(max-width: 2600px) {} */
 
-/*----------------------- Large Desktop -----------------------*/
-@media(max-width: 2600px) 
-{}
+/*============================ 2000 ===========================*/
+/* @media(max-width: 2000px) {} */
 
-/*-------------------------- Desktop --------------------------*/
-@media(max-width: 2000px) 
-{}
+/*============================ 1500 ===========================*/
+/* @media(max-width: 1500px) {} */
 
-/*-------------------------- Carousel --------------------------*/
-/* responsiveness for carousel should begin here */
-@media(max-width: 1580px) 
-{}
-
-/*----------------------- Small Desktop -----------------------*/
-@media(max-width: 1500px) 
-{}
-
-/*------------------------ Large Tablet -----------------------*/
+/*============================ 1200 ===========================*/
 @media (max-width: 1200px) {
   /*--------------------------- Header --------------------------*/
-  .header-space-holder {height: 112px;}
   .nav-desktop {display: none;}
   .nav-tablet {display: block;}
   .div-nav-tablet-row {
@@ -836,9 +827,9 @@ img {
     color: #1e90ff;
   }
   /*--------------------------- Intro ---------------------------*/
-  #intro {min-height: calc(100vh - 112px);}
-  .div-intro-window {height: calc(100vh - 11.2rem);}
-  .div-intro-window p:first-child {margin: -13.5rem 0 1.5rem 0;}
+  .div-intro-content-container {
+    margin-top: -15%;
+  }
   .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
@@ -871,7 +862,6 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
   }
 }
-
 @keyframes bounce-arrow-before-1200 {
   from {
     top: 0vh;
@@ -880,7 +870,6 @@ img {
     top: 1vh;
   }
 }
-
 @keyframes bounce-arrow-after-1200 {
   from {
     top: 3vh;
@@ -890,15 +879,40 @@ img {
   }
 }
 
-/*--------------------------- Tablet --------------------------*/
-@media screen and (max-width: 992px) {}
+/*============================ 1024 ===========================*/
+@media screen and (max-width: 1024px) {
+  /*--------------------------- About ---------------------------*/
+  .div-about-content-container {
+    max-width: 992;
+  }
+}
 
-/*------------------------ Large Phone ------------------------*/
+/*============================ 992 ============================*/
+@media screen and (max-width: 992px) {
+  /*--------------------------- Header --------------------------*/
+  .header-nav-link:hover {
+    color: #ffffff;
+    cursor: auto;
+  }
+  /*--------------------------- Intro ---------------------------*/
+  .a-intro-bottom-click:hover {
+    cursor: auto;
+  }
+  .a-intro-bottom-click:hover .div-intro-bouncing-arrow::before {
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+  }
+  .a-intro-bottom-click:hover .div-intro-bouncing-arrow::after {
+    border-bottom: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+  }
+}
+
+/*============================ 768 ============================*/
 @media screen and (max-width: 768px) {
   /*--------------------------- Header --------------------------*/
-  .header-space-holder {display: none;}
-  .header-mobile-space-holder {display: block;}
-  .div-header-nav {text-align: end;}
+  .nav-tablet {display: none;}
+  .nav-phone {display: block;}
   .div-header-hamburger {
     display: block;
     width: 50px;
@@ -930,28 +944,38 @@ img {
     height: 0.3rem;
   }
   /*--------------------------- Intro ---------------------------*/
-  #intro {min-height: calc(100vh - 43px);}
-  .div-intro-window {
-    height: calc(100vh - 4.3rem);
+  .div-intro-content-container {
+    max-width: 576px;
   }
-  .div-intro-window h1 {
+  .div-intro-content-container h1 {
     font: 700 2.7rem/1.2 Raleway, sans-serif;
   }
-  .div-intro-window p {
+  .div-intro-content-container p {
     font-size: 1.5rem;
   }
-  .div-intro-window p:first-child {
+  .div-intro-content-container p:first-child {
     margin: -4rem 0 1.5rem 0;
   }
 }
 
-/*--------------------------- Phone ---------------------------*/
+/*============================ 576 ============================*/
 @media screen and (max-width: 576px) {
+  /*-------------------------- Globals --------------------------*/
   .display-flex-420 {
     display: flex!important;
   }
   .remove-flex-420 {
     display: none!important;
+  }
+  /*--------------------------- Intro ---------------------------*/
+  .div-intro-content-container {
+    max-width: 420px;
+  }
+  .div-intro-content-container p:not(:last-child) {
+    margin: 0 0 2rem 0;
+  }
+  .div-intro-content-container h1 {
+    margin: 0 0 2rem 0;
   }
   .div-intro-bouncing-arrow::before {
     content: "";
@@ -984,15 +1008,6 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
   }
-  .div-intro-window {
-    height: calc(80vh - 4.3rem);
-  }
-  .div-intro-window p:not(:last-child) {
-    margin: 0 0 2rem 0;
-  }
-  .div-intro-window h1 {
-    margin: 0 0 2rem 0;
-  }
 }
 
 @keyframes bounce-arrow-before-576 {
@@ -1013,8 +1028,12 @@ img {
   }
 }
 
-/*------------------------ Phone ------------------------*/
+/*============================ 420 ============================*/
 @media screen and (max-width: 420px) {
+  /*--------------------------- Intro ---------------------------*/
+  .div-intro-content-container {
+    max-width: 360px;
+  }
   .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
@@ -1066,8 +1085,18 @@ img {
   }
 }
 
-/*--------------------- Small Phone ---------------------*/
+/*============================ 360 ============================*/
 @media screen and (max-width: 360px) {
+  /*--------------------------- Intro ---------------------------*/
+  .div-intro-content-container {
+    max-width: 320px;
+  }
+  .div-intro-content-container p {
+    font-size: 1.4rem;
+  }
+  .div-intro-content-container h1 {
+    font: 700 1.9rem/1.2 Raleway, sans-serif;
+  }
   .div-intro-bouncing-arrow::before {
     content: "";
     position: absolute;
@@ -1119,7 +1148,7 @@ img {
   }
 }
 
-/*------------------ Extra Small Phone ------------------*/
+/*============================ 320 ============================*/
 @media screen and (max-width: 320px) {
   .div-intro-bouncing-arrow::before {
     content: "";
@@ -1152,14 +1181,7 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
   }
-  .div-intro-window p {
-    font-size: 1.4rem;
-  }
-  .div-intro-window h1 {
-    font: 700 1.9rem/1.2 Raleway, sans-serif;
-  }
 }
-
 @keyframes bounce-arrow-before-320 {
   from {
     top: -1vh;
@@ -1168,7 +1190,6 @@ img {
     top: 1vh;
   }
 }
-
 @keyframes bounce-arrow-after-320 {
   from {
     top: 2.2vh;
