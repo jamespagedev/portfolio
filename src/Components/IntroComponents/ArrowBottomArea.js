@@ -8,7 +8,6 @@ function ArrowBottomArea() {
       to={`about`}
       spy={true}
       smooth={true}
-      offset={-56}
       duration={500}
       className="a-intro-bottom-click"
     >

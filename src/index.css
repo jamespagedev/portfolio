@@ -330,8 +330,6 @@ img {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
-  padding: 0 12px;
   Color: #ffffff;
   background-image: url('./img/blue-waves-background.jpg');
   background-repeat: no-repeat;
@@ -339,10 +337,9 @@ img {
 }
 .div-about-content-container {
   display: block;
-  position: relative;
   width: 100%;
   max-width: 1024px;
-  padding: 0 12px;
+  padding: 70px 12px;
 }
 .div-about-carousel {
   position: relative;
@@ -845,7 +842,6 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-1200;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-1200;
   }
-  
   .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
@@ -860,6 +856,10 @@ img {
     -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
+  }
+  /*--------------------------- About ---------------------------*/
+  .div-about {
+    padding: 140px 12px;
   }
 }
 @keyframes bounce-arrow-before-1200 {
@@ -955,6 +955,10 @@ img {
   }
   .div-intro-content-container p:first-child {
     margin: -4rem 0 1.5rem 0;
+  }
+  /*--------------------------- About ---------------------------*/
+  .div-about {
+    padding: 70px 12px;
   }
 }
 
