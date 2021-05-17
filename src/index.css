@@ -339,7 +339,7 @@ img {
   display: block;
   width: 100%;
   max-width: 1024px;
-  padding: 70px 12px;
+  padding: 70px 12px 40px;
 }
 .div-about-carousel {
   position: relative;
@@ -858,9 +858,7 @@ img {
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
   }
   /*--------------------------- About ---------------------------*/
-  .div-about {
-    padding: 140px 12px;
-  }
+  .div-about-content-container { padding: 140px 12px 40px; } /* Room for header */
 }
 @keyframes bounce-arrow-before-1200 {
   from {
@@ -882,9 +880,7 @@ img {
 /*============================ 1024 ===========================*/
 @media screen and (max-width: 1024px) {
   /*--------------------------- About ---------------------------*/
-  .div-about-content-container {
-    max-width: 992;
-  }
+  .div-about-content-container { max-width: 768px; }
 }
 
 /*============================ 992 ============================*/
@@ -957,20 +953,14 @@ img {
     margin: -4rem 0 1.5rem 0;
   }
   /*--------------------------- About ---------------------------*/
-  .div-about {
-    padding: 70px 12px;
+  .div-about-content-container {
+    max-width: 576px;
+    padding: 70px 12px 40px;
   }
 }
 
 /*============================ 576 ============================*/
 @media screen and (max-width: 576px) {
-  /*-------------------------- Globals --------------------------*/
-  .display-flex-420 {
-    display: flex!important;
-  }
-  .remove-flex-420 {
-    display: none!important;
-  }
   /*--------------------------- Intro ---------------------------*/
   .div-intro-content-container {
     max-width: 420px;
@@ -1012,6 +1002,10 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
   }
+  /*--------------------------- About ---------------------------*/
+  .div-about-content-container {
+    max-width: 420px;
+  }
 }
 
 @keyframes bounce-arrow-before-576 {
@@ -1034,6 +1028,13 @@ img {
 
 /*============================ 420 ============================*/
 @media screen and (max-width: 420px) {
+  /*-------------------------- Globals --------------------------*/
+  .display-flex-420 {
+    display: flex!important;
+  }
+  .remove-flex-420 {
+    display: none!important;
+  }
   /*--------------------------- Intro ---------------------------*/
   .div-intro-content-container {
     max-width: 360px;
@@ -1068,6 +1069,10 @@ img {
     -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
+  }
+  /*--------------------------- About ---------------------------*/
+  .div-about-content-container {
+    max-width: 360px;
   }
 }
 
@@ -1131,6 +1136,10 @@ img {
     -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
+  }
+  /*--------------------------- About ---------------------------*/
+  .div-about-content-container {
+    max-width: 320px;
   }
 }
 
