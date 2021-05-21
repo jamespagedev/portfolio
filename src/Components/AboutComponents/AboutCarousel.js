@@ -1,4 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 // components
 import EducationSlide from './EducationSlide.js';
@@ -16,6 +18,7 @@ const slidesIndexesWithScroll = new Set([funSlideIndex]);
 const AboutCarousel = props => {
   // variables
   const { containerWidth, slideWidth } = props;
+  const slideTitles = {1: "Education", 2: "History", 3: "What I Do For Fun"}
   const [slideIndex, setSlideIndex] = useState(1);
   const [hasScrollUpDown, setHasScrollUpDown] = useState(false);
   const [hobbyTabIdSelected, setHobbyTabIdSelected] = useState(hobbyTabIds.movies);
@@ -102,18 +105,21 @@ const AboutCarousel = props => {
   // render
   return (
     <div className="div-about-carousel">
+      <div className="div-about-carousel-buttons-title">
+        <button onClick={prev}>{slideIndex === 1 ? <span style={{paddingLeft: "2px"}}><FontAwesomeIcon icon={faChevronRight}/><FontAwesomeIcon icon={faChevronRight}/></span> :  <span style={{paddingRight: "4px"}}><FontAwesomeIcon icon={faChevronLeft} /></span>}</button>
+        <h1>{slideTitles[slideIndex]}</h1>
+        <button onClick={next}>{slideIndex === maxSlides ? <span style={{paddingRight: "2px"}}><FontAwesomeIcon icon={faChevronLeft}/><FontAwesomeIcon icon={faChevronLeft}/></span> : <span style={{paddingLeft: "4px"}}><FontAwesomeIcon icon={faChevronRight} /></span>}</button>
+      </div>
       <div className="div-about-carousel-window">
         <div className="div-about-carousel-inner" style={{width: `${maxSlides * containerWidth}px`, right: `${containerWidth * slideIndex - containerWidth}px`}}>
           <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
-            <EducationSlide next={next} prev={prev} />
+            <EducationSlide />
           </div>
           <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
-            <HistorySlide next={next} prev={prev} />
+            <HistorySlide />
           </div>
           <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
             <FunSlide
-              next={next}
-              prev={prev}
               hobbyTabIdSelected={hobbyTabIdSelected}
               handleChangeTab={handleChangeTab}
               moviesVerticlePosition={moviesVerticlePosition}

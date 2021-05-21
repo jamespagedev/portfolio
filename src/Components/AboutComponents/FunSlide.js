@@ -10,17 +10,12 @@ import { hobbyTabIds } from '../../Globals/index.js';
 
 const FunSlide = props => {
   const { 
-          prev, next,  hobbyTabIdSelected, handleChangeTab,
-          moviesVerticlePosition, musicVerticlePosition, gamesVerticlePosition
+          hobbyTabIdSelected, handleChangeTab, moviesVerticlePosition,
+          musicVerticlePosition, gamesVerticlePosition
         } = props;
 
   return (
     <div className="div-about-fun">
-      <div className="div-about-carousel-buttons">
-        <button className="forward" onClick={prev}>&lt;</button>
-        <button className="back-to-front" onClick={next}>&lt;&lt;</button>
-      </div>
-      <h1>What I Do For Fun</h1>
       <div className="div-about-fun-tabs">
         <button
           className={hobbyTabIdSelected === hobbyTabIds.movies ?

@@ -4,16 +4,9 @@ import Bachelors from '../../img/bachelor-degree.png';
 import LambdaFswBadge from '../../img/lambda-fsw-badge.png';
 import FavBooks from '../../img/favorite-books.jpg';
 
-const EducationSlide = props => {
-  const { prev, next } = props;
-
+const EducationSlide = () => {
   return (
     <div className="div-about-carousel-education-slide">
-      <div className="div-about-carousel-buttons">
-        <button className="front-to-back" onClick={prev}>&gt;&gt;</button>
-        <button className="backward" onClick={next}>&gt;</button>
-      </div>
-      <h1>Education</h1>
       <div className="div-about-carousel-education-row">
         <div style={{borderRight: "1px solid #00ffff", borderBottom: "1px solid #00ffff"}}>
           <h2>Associates</h2>

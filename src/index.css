@@ -344,7 +344,8 @@ img {
 .div-about-carousel {
   position: relative;
   z-index: 1;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
@@ -354,13 +355,12 @@ img {
 .div-about-carousel-window {
   overflow: hidden;
   max-width: 860px; /* 140px less than div-about-carousel */
-  height: 790px;
+  height: 720px;
   margin: 0 auto;
 }
 .div-about-carousel-inner {
   display: flex;
   position: relative;
-  top: -40px;
   transition: right 0.5s ease-in-out;
 }
 .div-about-carousel-slide {
@@ -765,18 +765,23 @@ img {
   background-repeat: no-repeat;
 }
 
-.div-about-carousel-buttons {
-  position: relative;
-  top: 48px;
+.div-about-carousel-buttons-title {
   display: flex;
-  justify-content: space-between;
-  width: 520px;
-  max-width: 520px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
-.div-about-carousel-buttons button {
+.div-about-carousel-buttons-title h1 {
+  width: 400px;
+  max-width: 400px;
+  padding-top: 5px;
+  font-size: 4rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0.3rem 0.4rem #000000;
+}
+.div-about-carousel-buttons-title button {
+  width: 70px;
+  padding: 10px 0;
   font-size: 3rem;
-  padding: 1rem 2rem;
   color: #ffffff;
   background-color: #0087ce;
   border: none;
@@ -784,7 +789,7 @@ img {
   outline: none;
   cursor: pointer;
 }
-.div-about-carousel-buttons button:hover {
+.div-about-carousel-buttons-title button:hover {
   color: #0087ce;
   background-color: #ffffff;
 }

@@ -2,16 +2,9 @@ import React from 'react';
 
 import GraduationCap from '../../img/college.svg';
 
-const HistorySlide = props => {
-  const { prev, next } = props;
-
+const HistorySlide = () => {
   return (
     <div className="div-about-carousel-history-slide">
-      <div className="div-about-carousel-buttons">
-        <button className="forward" onClick={prev}>&lt;</button>
-        <button className="backward" onClick={next}>&gt;</button>
-      </div>
-      <h1>History</h1>
       <div>
         <h2>Experience</h2>
         <div className="row">
