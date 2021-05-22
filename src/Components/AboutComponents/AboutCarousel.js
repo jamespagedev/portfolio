@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faChevronLeft, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 // components
 import EducationSlide from './EducationSlide.js';
@@ -18,17 +18,18 @@ const slidesIndexesWithScroll = new Set([funSlideIndex]);
 const AboutCarousel = props => {
   // variables
   const { containerWidth, slideWidth } = props;
-  const slideTitles = {1: "Education", 2: "History", 3: "What I Do For Fun"}
-  const [slideIndex, setSlideIndex] = useState(1);
+  const slideTitles = {1: "Education", 2: "History", 3: "What I Do For Fun"};
+  const slideIndexes = {education: 1, history: 2, fun: 3};
+  const [slideIndex, setSlideIndex] = useState(slideIndexes.education);
   const [hasScrollUpDown, setHasScrollUpDown] = useState(false);
   const [hobbyTabIdSelected, setHobbyTabIdSelected] = useState(hobbyTabIds.movies);
   const [rowsPerFunSlide] = useState(2);
   const [moviesVerticlePosition, setMoviesVerticlePosition] = useState(0);
-  const [moviesContentResolution] = useState({totalHeight: 0, totalWidth: 0, viewHeight: 0, viewWidth: 0});
+  const [moviesContentResolution, setMoviesContentResolution] = useState({totalHeight: 0, totalWidth: 0, viewHeight: 0, viewWidth: 0});
   const [musicVerticlePosition, setMusicVerticlePosition] = useState(0);
-  const [musicContentResolution] = useState({totalHeight: 0, totalWidth: 0, viewHeight: 0, viewWidth: 0});
+  const [musicContentResolution, setMusicContentResolution] = useState({totalHeight: 0, totalWidth: 0, viewHeight: 0, viewWidth: 0});
   const [gamesVerticlePosition, setGamesVerticlePosition] = useState(0);
-  const [gamesContentResolution] = useState({totalHeight: 0, totalWidth: 0, viewHeight: 0, viewWidth: 0});
+  const [gamesContentResolution, setGamesContentResolution] = useState({totalHeight: 0, totalWidth: 0, viewHeight: 0, viewWidth: 0});
 
   // functions
   const next = () => {
@@ -41,6 +42,11 @@ const AboutCarousel = props => {
     const prevSlideIndex = (slideIndex - 1) < 1 ? maxSlides : slideIndex - 1
     setSlideIndex(prevSlideIndex);
     slidesIndexesWithScroll.has(prevSlideIndex) ? setHasScrollUpDown(true) : setHasScrollUpDown(false);
+  }
+
+  const changeSlide = (slideNum) => {
+    setSlideIndex(slideNum);
+    slidesIndexesWithScroll.has(slideNum) ? setHasScrollUpDown(true) : setHasScrollUpDown(false);
   }
 
   // Functions
@@ -87,18 +93,30 @@ const AboutCarousel = props => {
   }
 
   useLayoutEffect(() => {
-    moviesContentResolution.totalHeight = document.getElementById('movies-content').clientHeight;
-    musicContentResolution.totalHeight = document.getElementById('music-content').clientHeight;
-    gamesContentResolution.totalHeight = document.getElementById('games-content').clientHeight;
-    moviesContentResolution.totalWidth = document.getElementById('movies-content').clientWidth;
-    musicContentResolution.totalWidth = document.getElementById('music-content').clientWidth;
-    gamesContentResolution.totalWidth = document.getElementById('games-content').clientWidth;
-    moviesContentResolution.viewHeight = document.getElementById('movies-content-list-default').clientHeight * 2;
-    musicContentResolution.viewHeight = document.getElementById('music-content-list-default').clientHeight * 2;
-    gamesContentResolution.viewHeight = document.getElementById('games-content-list-default').clientHeight * 2;
-    moviesContentResolution.viewWidth = document.getElementById('movies-content-list-default').clientWidth * 4;
-    musicContentResolution.viewWidth = document.getElementById('music-content-list-default').clientWidth * 4;
-    gamesContentResolution.viewWidth = document.getElementById('games-content-list-default').clientWidth * 4;
+    if (hobbyTabIdSelected === hobbyTabIds.movies && moviesContentResolution.totalHeight === 0) {
+      const newContentResolution = {}
+      newContentResolution.totalHeight = document.getElementById('movies-content').clientHeight;
+      newContentResolution.totalWidth = document.getElementById('movies-content').clientWidth;
+      newContentResolution.viewHeight = document.getElementById('movies-content-list-default').clientHeight * 2;
+      newContentResolution.viewWidth = document.getElementById('movies-content-list-default').clientWidth * 4;
+      setMoviesContentResolution(newContentResolution);
+    }
+    if (hobbyTabIdSelected === hobbyTabIds.music && musicContentResolution.totalHeight === 0) {
+      const newContentResolution = {}
+      newContentResolution.totalHeight = document.getElementById('music-content').clientHeight;
+      newContentResolution.totalWidth = document.getElementById('music-content').clientWidth;
+      newContentResolution.viewHeight = document.getElementById('music-content-list-default').clientHeight * 2;
+      newContentResolution.viewWidth = document.getElementById('music-content-list-default').clientWidth * 4;
+      setMusicContentResolution(newContentResolution);
+    }
+    if (hobbyTabIdSelected === hobbyTabIds.videoGames && gamesContentResolution.totalHeight === 0) {
+      const newContentResolution = {}
+      newContentResolution.totalHeight = document.getElementById('games-content').clientHeight;
+      newContentResolution.totalWidth = document.getElementById('games-content').clientWidth;
+      newContentResolution.viewHeight = document.getElementById('games-content-list-default').clientHeight * 2;
+      newContentResolution.viewWidth = document.getElementById('games-content-list-default').clientWidth * 4;
+      setGamesContentResolution(newContentResolution);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hobbyTabIdSelected]);
 
@@ -110,15 +128,18 @@ const AboutCarousel = props => {
         <h1>{slideTitles[slideIndex]}</h1>
         <button onClick={next}>{slideIndex === maxSlides ? <span style={{paddingRight: "2px"}}><FontAwesomeIcon icon={faChevronLeft}/><FontAwesomeIcon icon={faChevronLeft}/></span> : <span style={{paddingLeft: "4px"}}><FontAwesomeIcon icon={faChevronRight} /></span>}</button>
       </div>
+      <div className="div-about-carousel-dots">
+        {[...Array(maxSlides)].map((num, i) => <div key={i} className="dot-action" onClick={() => changeSlide(i+1)}><div className={slideIndex === i+1 ? "dot selected" : "dot"} /></div>)}
+      </div>
       <div className="div-about-carousel-window">
         <div className="div-about-carousel-inner" style={{width: `${maxSlides * containerWidth}px`, right: `${containerWidth * slideIndex - containerWidth}px`}}>
-          <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
+          <div className={slideIndex === slideIndexes.education ? "div-about-carousel-slide" : "div-about-carousel-slide about-carousel-slide-hide"} style={{width: `${slideWidth}px`}}>
             <EducationSlide />
           </div>
-          <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
+          <div className={slideIndex === slideIndexes.history ? "div-about-carousel-slide" : "div-about-carousel-slide about-carousel-slide-hide"} style={{width: `${slideWidth}px`}}>
             <HistorySlide />
           </div>
-          <div className="div-about-carousel-slide" style={{width: `${slideWidth}px`}}>
+          <div className={slideIndex === slideIndexes.fun ? "div-about-carousel-slide" : "div-about-carousel-slide about-carousel-slide-hide"} style={{width: `${slideWidth}px`}}>
             <FunSlide
               hobbyTabIdSelected={hobbyTabIdSelected}
               handleChangeTab={handleChangeTab}
@@ -128,33 +149,64 @@ const AboutCarousel = props => {
             />
           </div>
         </div>
-        {hasScrollUpDown && 
+        {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.movies &&
           <div className="div-about-fun-buttons">
-            { ((hobbyTabIdSelected === hobbyTabIds.movies && moviesVerticlePosition === 0) || (hobbyTabIdSelected === hobbyTabIds.music && musicVerticlePosition === 0) || (hobbyTabIdSelected === hobbyTabIds.videoGames && gamesVerticlePosition === 0)) ?
-              <button className="down-to-bottom" onClick={scrollUp}><span>&#8964;</span><span>&#8964;</span></button> :
-              <button className="up" onClick={scrollUp}><span>&#8964;</span></button>
-            }
-            { 
-              (
-                ( 
-                  hobbyTabIdSelected === hobbyTabIds.movies &&
-                  moviesVerticlePosition !== 0 &&
-                  moviesVerticlePosition + moviesContentResolution.viewHeight >= moviesContentResolution.totalHeight
-                ) || 
-                (
-                  hobbyTabIdSelected === hobbyTabIds.music &&
-                  musicVerticlePosition !== 0 &&
-                  musicVerticlePosition + musicContentResolution.viewHeight >= musicContentResolution.totalHeight
-                ) || 
-                (
-                  hobbyTabIdSelected === hobbyTabIds.videoGames && 
-                  gamesVerticlePosition !== 0 && 
-                  gamesVerticlePosition + gamesContentResolution.viewHeight >= gamesContentResolution.totalHeight
-                )
-              ) ?
-              <button className="up-to-top" onClick={scrollDown}><span>&#8964;</span><span>&#8964;</span></button> :
-              <button className="down" onClick={scrollDown}><span>&#8964;</span></button>
-            }
+            {console.log("movies")}
+            {console.log("moviesVerticlePosition", moviesVerticlePosition)}
+            {console.log("moviesContentResolution.viewHeight", moviesContentResolution.viewHeight)}
+            {console.log("moviesContentResolution.totalHeight", moviesContentResolution.totalHeight)}
+              <button className="top-button" onClick={scrollUp}>
+              {(moviesVerticlePosition === 0) ?
+                <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
+                <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
+              }
+              </button>
+              <button className="bottom-button" onClick={scrollDown}>
+                {(moviesVerticlePosition + moviesContentResolution.viewHeight >= moviesContentResolution.totalHeight) ? 
+                  <span className="up-to-top" style={{paddingBottom: "2px"}}><FontAwesomeIcon icon={faChevronUp}/><FontAwesomeIcon icon={faChevronUp}/></span> :
+                  <span style={{paddingTop: "4px"}}><FontAwesomeIcon icon={faChevronDown}/></span>
+                }
+              </button>
+          </div>
+        }
+        {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.music && musicContentResolution.totalHeight !== 0 &&
+          <div className="div-about-fun-buttons">
+            {console.log("music")}
+            {console.log("musicVerticlePosition", musicVerticlePosition)}
+            {console.log("musicContentResolution.viewHeight", musicContentResolution.viewHeight)}
+            {console.log("musicContentResolution.totalHeight", musicContentResolution.totalHeight)}
+              <button className="top-button" onClick={scrollUp}>
+              {(musicVerticlePosition === 0) ?
+                <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
+                <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
+              }
+              </button>
+              <button className="bottom-button" onClick={scrollDown}>
+                {(musicVerticlePosition + musicContentResolution.viewHeight >= musicContentResolution.totalHeight) ? 
+                  <span className="up-to-top" style={{paddingBottom: "2px"}}><FontAwesomeIcon icon={faChevronUp}/><FontAwesomeIcon icon={faChevronUp}/></span> :
+                  <span style={{paddingTop: "4px"}}><FontAwesomeIcon icon={faChevronDown}/></span>
+                }
+              </button>
+          </div>
+        }
+        {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.videoGames &&
+          <div className="div-about-fun-buttons">
+            {console.log("games")}
+            {console.log("gamesVerticlePosition", gamesVerticlePosition)}
+            {console.log("gamesContentResolution.viewHeight", gamesContentResolution.viewHeight)}
+            {console.log("gamesContentResolution.totalHeight", gamesContentResolution.totalHeight)}
+              <button className="top-button" onClick={scrollUp}>
+              {(gamesVerticlePosition === 0) ?
+                <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
+                <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
+              }
+              </button>
+              <button className="bottom-button" onClick={scrollDown}>
+                {(gamesVerticlePosition + gamesContentResolution.viewHeight >= gamesContentResolution.totalHeight) ? 
+                  <span className="up-to-top" style={{paddingBottom: "2px"}}><FontAwesomeIcon icon={faChevronUp}/><FontAwesomeIcon icon={faChevronUp}/></span> :
+                  <span style={{paddingTop: "4px"}}><FontAwesomeIcon icon={faChevronDown}/></span>
+                }
+              </button>
           </div>
         }
       </div>

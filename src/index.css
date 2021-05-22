@@ -342,29 +342,89 @@ img {
   padding: 70px 12px 40px;
 }
 .div-about-carousel {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   background-color: rgba(255,255,255,0.5);
   border-radius: 2rem;
 }
+.div-about-carousel-slide {
+  display: block;
+  opacity: 1;
+  transition: all 1000ms ease-in-out; /* double size of about-carousel-slide-hide */
+}
+.about-carousel-slide-hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 500ms ease-in-out;
+}
+.div-about-carousel-buttons-title {
+  display: flex;
+  margin: 20px auto 0;
+}
+.div-about-carousel-buttons-title h1 {
+  width: 400px;
+  max-width: 400px;
+  padding-top: 5px;
+  font-size: 4rem;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0.3rem 0.4rem #000000;
+}
+.div-about-carousel-buttons-title button {
+  width: 70px;
+  padding: 10px 0;
+  font-size: 3rem;
+  color: #ffffff;
+  background-color: #0087ce;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+.div-about-carousel-buttons-title button:hover {
+  color: #0087ce;
+  background-color: #ffffff;
+}
+.div-about-carousel-dots {
+  display: flex;
+  margin: 10px 0 10px;
+}
+.div-about-carousel-dots .dot-action {
+  padding: 10px;
+  cursor: pointer;
+}
+.div-about-carousel-dots .dot-action:hover .dot {
+  background-color: rgba(0, 0, 246, 0.2);
+}
+.div-about-carousel-dots .dot {
+  min-width: 20px;
+  width: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  height: 20px;
+  max-height: 20px;
+  border-radius: 50%;
+  border: 2px solid #0000f6;
+}
+.div-about-carousel-dots .selected {
+  background-color: #0000f6!important;
+}
 .div-about-carousel-window {
   overflow: hidden;
   max-width: 860px; /* 140px less than div-about-carousel */
   height: 720px;
-  margin: 0 auto;
+  margin: 0;
 }
 .div-about-carousel-inner {
   display: flex;
   position: relative;
   transition: right 0.5s ease-in-out;
-}
-.div-about-carousel-slide {
-  display: block;
 }
 .button-about-fun-tab {
   background: none;
@@ -397,8 +457,6 @@ img {
 .button-about-fun-tab-selected:hover {
   cursor: pointer;
 }
-
-
 .div-about-carousel-education-slide {
   display: flex;
   flex-direction: column;
@@ -640,12 +698,14 @@ img {
 }
 .div-about-fun-buttons button {
   position: absolute;
-  height: 54px;
-  width: 57.53px;
-  color: #ffffff;
-  background-color: #0087ce;
+  height: 64px;
+  width: 58px;
+  padding: 0 10px;
   border: none;
   border-radius: 8px;
+  color: #ffffff;
+  background-color: #0087ce;
+  font-size: 3rem;
   outline: none;
   cursor: pointer;
 }
@@ -653,58 +713,22 @@ img {
   color: #0087ce;
   background-color: #ffffff;
 }
-.div-about-fun-buttons .down-to-bottom span:first-child {
-  position: absolute;
-  font-size: 45px;
-  bottom: 25px;
-  left: 17px;
+.div-about-fun-buttons span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.div-about-fun-buttons .down-to-bottom span:last-child {
-  position: absolute;
-  font-size: 45px;
-  bottom: 5px;
-  left: 17px;
+.div-about-fun-buttons .down-to-bottom svg:last-child {
+  margin-top: -12px;
 }
-.div-about-fun-buttons .down span {
-  position: absolute;
-  font-size: 45px;
-  bottom: 14px;
-  left: 17px;
+.div-about-fun-buttons .up-to-top svg:first-child {
+  margin-bottom: -12px;
 }
-.div-about-fun-buttons .up span {
-  position: absolute;
-  font-size: 45px;
-  top: 12px;
-  left: 17px;
-  transform: rotate(180deg);
-}
-.div-about-fun-buttons .up-to-top span:first-child {
-  position: absolute;
-  font-size: 45px;
-  top: 5px;
-  left: 17px;
-  transform: rotate(180deg);
-}
-.div-about-fun-buttons .up-to-top span:last-child {
-  position: absolute;
-  font-size: 45px;
-  top: 25px;
-  left: 17px;
-  transform: rotate(180deg);
-}
-.div-about-fun-buttons .down-to-bottom {
+.div-about-fun-buttons .top-button {
   right: 6px;
   top: 130px;
 }
-.div-about-fun-buttons .down {
-  right: 6px;
-  bottom: 10px;
-}
-.div-about-fun-buttons .up {
-  right: 6px;
-  top: 130px;
-}
-.div-about-fun-buttons .up-to-top {
+.div-about-fun-buttons .bottom-button {
   right: 6px;
   bottom: 10px;
 }
@@ -765,34 +789,6 @@ img {
   background-repeat: no-repeat;
 }
 
-.div-about-carousel-buttons-title {
-  display: flex;
-  margin: 20px auto;
-}
-.div-about-carousel-buttons-title h1 {
-  width: 400px;
-  max-width: 400px;
-  padding-top: 5px;
-  font-size: 4rem;
-  font-weight: 600;
-  text-align: center;
-  text-shadow: 0.3rem 0.4rem #000000;
-}
-.div-about-carousel-buttons-title button {
-  width: 70px;
-  padding: 10px 0;
-  font-size: 3rem;
-  color: #ffffff;
-  background-color: #0087ce;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  cursor: pointer;
-}
-.div-about-carousel-buttons-title button:hover {
-  color: #0087ce;
-  background-color: #ffffff;
-}
 
 /*=============================================================*/
 /*===================== Responsive Design =====================*/
@@ -886,6 +882,9 @@ img {
 @media screen and (max-width: 1024px) {
   /*--------------------------- About ---------------------------*/
   .div-about-content-container { max-width: 768px; }
+  .div-about-carousel-dots .dot-action:hover .dot {
+    background-color: inherit;
+  }
 }
 
 /*============================ 992 ============================*/
