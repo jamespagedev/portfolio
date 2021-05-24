@@ -7,10 +7,7 @@ function About() {
   return(
     <div id="about" className="div-about">
       <div className="div-about-content-container">
-        <AboutCarousel
-          containerWidth={860}
-          slideWidth={860}
-        />
+        <AboutCarousel />
       </div>
     </div>
   );

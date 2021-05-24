@@ -353,23 +353,23 @@ img {
   background-color: rgba(255,255,255,0.5);
   border-radius: 2rem;
 }
-.div-about-carousel-slide {
+.div-about-carousel-slide-container {
   display: block;
+  width: 860px;
   opacity: 1;
   transition: all 1000ms ease-in-out; /* double size of about-carousel-slide-hide */
 }
-.about-carousel-slide-hide {
+.about-carousel-slide-container-hide {
   opacity: 0;
   pointer-events: none;
   transition: all 500ms ease-in-out;
 }
 .div-about-carousel-buttons-title {
   display: flex;
-  margin: 20px auto 0;
+  margin: 20px 0 0;
 }
 .div-about-carousel-buttons-title h1 {
   width: 400px;
-  max-width: 400px;
   padding-top: 5px;
   font-size: 4rem;
   font-weight: 600;
@@ -393,7 +393,7 @@ img {
 }
 .div-about-carousel-dots {
   display: flex;
-  margin: 10px 0 10px;
+  margin: 10px 0;
 }
 .div-about-carousel-dots .dot-action {
   padding: 10px;
@@ -423,8 +423,18 @@ img {
 }
 .div-about-carousel-inner {
   display: flex;
+  width: 2580px;
   position: relative;
   transition: right 0.5s ease-in-out;
+}
+.div-about-carousel-inner-on-slide-one {
+  right: 0px;
+}
+.div-about-carousel-inner-on-slide-two {
+  right: 860px;
+}
+.div-about-carousel-inner-on-slide-three {
+  right: 1720px;
 }
 .button-about-fun-tab {
   background: none;
@@ -462,6 +472,7 @@ img {
   flex-direction: column;
   width: 100%;
   text-align: center;
+  opacity: 1;
 }
 .div-about-carousel-education-slide h1 {
   margin-bottom: 2rem;
@@ -470,20 +481,44 @@ img {
   font-weight: 600;
   text-shadow: 0.3rem 0.4rem #000000;
 }
+.about-carousel-education-mobile-selection {
+  display: none;
+}
 .div-about-carousel-education-row {
   display: flex;
   width: 100%;
   background-color: #191970;
 }
-.div-about-carousel-education-row div {
+.div-about-carousel-education-row a {
   display: block;
   width: 50%;
   background-color: #191970;
+  user-select: none;
+  text-decoration: none;
+}
+.div-about-carousel-education-row a:hover h2 {
+  text-decoration: underline;
+}
+.about-carousel-education-top-left {
+  border-right: 1px solid #00ffff;
+  border-bottom: 1px solid #00ffff;
+}
+.about-carousel-education-top-right {
+  border-bottom: 1px solid #00ffff;
+  border-left: 1px solid #00ffff;
+}
+.about-carousel-education-bottom-left {
+  border-top: 1px solid #00ffff;
+  border-right: 1px solid #00ffff;
+}
+.about-carousel-education-bottom-right {
+  border-top: 1px solid #00ffff;
+  border-left: 1px solid #00ffff;
 }
 .div-about-carousel-education-row img {
   margin-bottom: 20px;
 }
-.div-about-carousel-education-slide div h2 {
+.div-about-carousel-education-row h2 {
   padding: 2rem;
   color: #00ffff;
 }
@@ -766,6 +801,9 @@ img {
 .div-about-fun-content-lists ul a {
   text-decoration: none;
 }
+.div-about-fun-content-lists ul a:hover {
+  text-decoration: underline;
+}
 
 .div-about-fun-tabs {
   display: flex;
@@ -789,26 +827,37 @@ img {
   background-repeat: no-repeat;
 }
 
-
+/*=============================================================*/
 /*=============================================================*/
 /*===================== Responsive Design =====================*/
 /*=============================================================*/
+/*=============================================================*/
 
+/*=============================================================*/
 /*============================ 3500 ===========================*/
+/*=============================================================*/
 /* @media(max-width: 3500px) {} */
 
+/*=============================================================*/
 /*============================ 2600 ===========================*/
+/*=============================================================*/
 /* @media(max-width: 2600px) {} */
 
+/*=============================================================*/
 /*============================ 2000 ===========================*/
+/*=============================================================*/
 /* @media(max-width: 2000px) {} */
 
+/*=============================================================*/
 /*============================ 1500 ===========================*/
+/*=============================================================*/
 /* @media(max-width: 1500px) {} */
 
+/*=============================================================*/
 /*============================ 1200 ===========================*/
+/*=============================================================*/
 @media (max-width: 1200px) {
-  /*--------------------------- Header --------------------------*/
+  /*=========================== Header ==========================*/
   .nav-desktop {display: none;}
   .nav-tablet {display: block;}
   .div-nav-tablet-row {
@@ -824,7 +873,7 @@ img {
   .div-nav-tablet-row a:active {
     color: #1e90ff;
   }
-  /*--------------------------- Intro ---------------------------*/
+  /*=========================== Intro ===========================*/
   .div-intro-content-container {
     margin-top: -15%;
   }
@@ -858,7 +907,7 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-1200;
   }
-  /*--------------------------- About ---------------------------*/
+  /*=========================== About ===========================*/
   .div-about-content-container { padding: 140px 12px 40px; } /* Room for header */
 }
 @keyframes bounce-arrow-before-1200 {
@@ -877,24 +926,116 @@ img {
     top: 4vh;
   }
 }
-
+/*=============================================================*/
 /*============================ 1024 ===========================*/
+/*=============================================================*/
 @media screen and (max-width: 1024px) {
-  /*--------------------------- About ---------------------------*/
+  /*=========================== About ===========================*/
   .div-about-content-container { max-width: 768px; }
+  /*------------------- about-carousel-globals ------------------*/
   .div-about-carousel-dots .dot-action:hover .dot {
     background-color: inherit;
   }
+  .div-about-carousel-buttons-title button {
+    width: 65px;
+    cursor: auto;
+    font-size: 2.5rem;
+  }
+  .div-about-carousel-buttons-title button:hover {
+    color: #ffffff;
+    background-color: #0087ce;
+  }
+  .div-about-carousel-buttons-title h1 {
+    width: 330px;
+    font-size: 3.5rem;
+    text-shadow: 3px 3px #000000;
+  }
+  .div-about-carousel-dots .dot {
+    min-width: 15px;
+    width: 15px;
+    max-width: 15px;
+    min-height: 15px;
+    height: 15px;
+    max-height: 15px;
+  }
+  .div-about-carousel-inner {
+    width: 1800px;
+  }
+  .div-about-carousel-window {
+    max-width: 600px;
+    height: 400px;
+  }
+  .div-about-carousel-slide-container {
+    width: 600px;
+    height: 365px;
+    overflow-y: hidden;
+  }
+  .div-about-carousel-inner-on-slide-two {
+    right: 600px;
+  }
+  .div-about-carousel-inner-on-slide-three {
+    right: 1200px;
+  }
+  /*------------------ about-carousel-education -----------------*/
+  .div-about-carousel-education-slide {
+    align-items: center;
+    position: relative;
+  }
+  .about-carousel-education-mobile-selection {
+    display: inline-block;
+    width: 220px;
+    padding: 10px 0 10px 5px;
+    border: 1px solid #0000f6;
+    border-radius: 7px;
+    outline: #0000f6;
+  }
+  .div-about-carousel-education-row {
+    flex-direction: column;
+    height: 315px;
+    overflow-y: hidden;
+    position: absolute;
+    top: 50px;
+    background-color: transparent;
+    border: none;
+  }
+  .div-about-carousel-education-row a {
+    position: absolute;
+    top: -312px;
+    width: 100%;
+    border: 2px solid #00ffff;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .div-about-carousel-education-row a:hover h2 {
+    text-decoration: none;
+  }
+  .div-about-carousel-education-row .selected {
+    top: 0;
+    z-index: 2;
+    opacity: 1;
+    pointer-events: initial;
+    visibility: visible;
+    transition: all 300ms ease-in-out;
+  }
+  .div-about-carousel-education-row h2 {
+    display: none;
+  }
+  .div-about-carousel-education-row img {
+    margin-top: 20px;
+  }
 }
 
+/*=============================================================*/
 /*============================ 992 ============================*/
+/*=============================================================*/
 @media screen and (max-width: 992px) {
-  /*--------------------------- Header --------------------------*/
+  /*=========================== Header ==========================*/
   .header-nav-link:hover {
     color: #ffffff;
     cursor: auto;
   }
-  /*--------------------------- Intro ---------------------------*/
+  /*=========================== Intro ===========================*/
   .a-intro-bottom-click:hover {
     cursor: auto;
   }
@@ -908,9 +1049,11 @@ img {
   }
 }
 
+/*=============================================================*/
 /*============================ 768 ============================*/
+/*=============================================================*/
 @media screen and (max-width: 768px) {
-  /*--------------------------- Header --------------------------*/
+  /*=========================== Header ==========================*/
   .nav-tablet {display: none;}
   .nav-phone {display: block;}
   .div-header-hamburger {
@@ -943,7 +1086,7 @@ img {
     width: 3rem;
     height: 0.3rem;
   }
-  /*--------------------------- Intro ---------------------------*/
+  /*=========================== Intro ===========================*/
   .div-intro-content-container {
     max-width: 576px;
   }
@@ -956,16 +1099,53 @@ img {
   .div-intro-content-container p:first-child {
     margin: -4rem 0 1.5rem 0;
   }
-  /*--------------------------- About ---------------------------*/
+  /*=========================== About ===========================*/
   .div-about-content-container {
     max-width: 576px;
     padding: 70px 12px 40px;
   }
+  /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title button {
+    width: 60px;
+    font-size: 2rem;
+  }
+  .div-about-carousel-buttons-title h1 {
+    width: 290px;
+    font-size: 3rem;
+    text-shadow: 2px 3px #000000;
+  }
+  .div-about-carousel-window {
+    max-width: 420px;
+  }
+  .div-about-carousel-slide-container {
+    width: 420px;
+  }
+  /*------------------ about-carousel-education -----------------*/
+  .div-about-carousel-education-row a {
+    padding: 0 8px;
+  }
+  .div-about-carousel-education-row a {
+    top: -232px;
+  }
+  .img-about-carousel-education-associates {
+    width: 100%;
+  }
+  .img-about-carousel-education-bachelors {
+    width: 100%;
+  }
+  .img-about-carousel-education-badge {
+    width: 65%;
+  }
+  .img-about-carousel-education-books {
+    width: 100%;
+  }
 }
 
+/*=============================================================*/
 /*============================ 576 ============================*/
+/*=============================================================*/
 @media screen and (max-width: 576px) {
-  /*--------------------------- Intro ---------------------------*/
+  /*=========================== Intro ===========================*/
   .div-intro-content-container {
     max-width: 420px;
   }
@@ -1006,9 +1186,73 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-576;
   }
-  /*--------------------------- About ---------------------------*/
+  /*=========================== About ===========================*/
   .div-about-content-container {
     max-width: 420px;
+  }
+  /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title button {
+    width: 55px;
+    font-size: 1.6rem;
+  }
+  .div-about-carousel-buttons-title h1 {
+    width: 240px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px #000000;
+  }
+  .div-about-carousel-window {
+    max-width: 300px;
+    height: 300px;
+  }
+  .div-about-carousel-slide-container {
+    width: 300px;
+  }
+  .about-carousel-education-mobile-selection {
+    display: none;
+  }
+  .div-about-carousel-window {
+    width: 280px;
+  }
+  .div-about-carousel-slide-container {
+    width: 280px;
+  }
+  /*------------------ about-carousel-education -----------------*/
+  .div-about-carousel-education-slide {
+    position: initial;
+  }
+  .div-about-carousel-education-row {
+    position: initial;
+    top: auto;
+    height: auto;
+    width: 100%;
+    overflow-y: visible;
+  }
+  .div-about-carousel-education-row a {
+    position: initial;
+    top: auto;
+    width: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+  .div-about-carousel-education-row .selected {
+    top: auto;
+    z-index: auto;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transition: none;
+  }
+  .div-about-carousel-education-row h2 {
+    display: block;
+    padding: 0;
+    font-size: 1.6rem;
+  }
+  .div-about-carousel-education-row img {
+    display: none;
   }
 }
 
@@ -1030,16 +1274,18 @@ img {
   }
 }
 
+/*=============================================================*/
 /*============================ 420 ============================*/
+/*=============================================================*/
 @media screen and (max-width: 420px) {
-  /*-------------------------- Globals --------------------------*/
+  /*========================== Globals ==========================*/
   .display-flex-420 {
     display: flex!important;
   }
   .remove-flex-420 {
     display: none!important;
   }
-  /*--------------------------- Intro ---------------------------*/
+  /*=========================== Intro ===========================*/
   .div-intro-content-container {
     max-width: 360px;
   }
@@ -1074,9 +1320,36 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-420;
   }
-  /*--------------------------- About ---------------------------*/
+  /*=========================== About ===========================*/
   .div-about-content-container {
     max-width: 360px;
+  }
+  /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title button {
+    width: 50px;
+    font-size: 1.4rem;
+  }
+  .div-about-carousel-buttons-title h1 {
+    width: 210px;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px #000000;
+  }
+  .div-about-carousel-dots {
+    margin: 5px 0;
+  }
+  .div-about-carousel-dots .dot {
+    min-width: 10px;
+    width: 10px;
+    max-width: 10px;
+    min-height: 10px;
+    height: 10px;
+    max-height: 10px;
+  }
+  .div-about-carousel-window {
+    width: 240px;
+  }
+  .div-about-carousel-slide-container {
+    width: 240px;
   }
 }
 
@@ -1098,9 +1371,11 @@ img {
   }
 }
 
+/*=============================================================*/
 /*============================ 360 ============================*/
+/*=============================================================*/
 @media screen and (max-width: 360px) {
-  /*--------------------------- Intro ---------------------------*/
+  /*=========================== Intro ===========================*/
   .div-intro-content-container {
     max-width: 320px;
   }
@@ -1125,7 +1400,6 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-360;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-360;
   }
-  
   .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
@@ -1141,9 +1415,35 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-360;
   }
-  /*--------------------------- About ---------------------------*/
+  /*=========================== About ===========================*/
   .div-about-content-container {
     max-width: 320px;
+  }
+  /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title button {
+    width: 40px;
+    font-size: 1.2rem;
+  }
+  .div-about-carousel-buttons-title h1 {
+    width: auto;
+    margin: 0 10px;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px #000000;
+  }
+  .div-about-carousel-window {
+    width: 200px;
+    height: 220px;
+  }
+  .div-about-carousel-slide-container {
+    width: 200px;
+  }
+  /*------------------ about-carousel-education -----------------*/
+  .div-about-carousel-education-row a {
+    margin-bottom: 10px;
+    padding: 12px;
+  }
+  .div-about-carousel-education-row h2 {
+    font-size: 1.2rem;
   }
 }
 
@@ -1165,7 +1465,9 @@ img {
   }
 }
 
+/*=============================================================*/
 /*============================ 320 ============================*/
+/*=============================================================*/
 @media screen and (max-width: 320px) {
   .div-intro-bouncing-arrow::before {
     content: "";
@@ -1182,7 +1484,6 @@ img {
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-320;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-before-320;
   }
-  
   .div-intro-bouncing-arrow::after {
     content: "";
     position: absolute;
@@ -1197,6 +1498,35 @@ img {
     -moz-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
     -webkit-animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
     animation: 0.3s ease-out 0.3s infinite alternate bounce-arrow-after-320;
+  }
+  /*=========================== About ===========================*/
+  .div-about-content-container {
+    max-width: 250px;
+  }
+  /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title button {
+    width: 35px;
+    padding: 7px 0;
+  }
+  .div-about-carousel-buttons-title h1 {
+    margin: 0 8px;
+    font-size: 1.4rem;
+    text-shadow: 1px 2px #000000;
+  }
+  .div-about-carousel-window {
+    width: 160px;
+    height: 200px;
+  }
+  .div-about-carousel-slide-container {
+    width: 160px;
+  }
+  /*------------------ about-carousel-education -----------------*/
+  .div-about-carousel-education-row a {
+    margin-bottom: 10px;
+    padding: 10px 5px;
+  }
+  .div-about-carousel-education-row h2 {
+    font-size: 1.1rem;
   }
 }
 @keyframes bounce-arrow-before-320 {

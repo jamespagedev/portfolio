@@ -15,9 +15,8 @@ const maxSlides = 3;
 const funSlideIndex = 3;
 const slidesIndexesWithScroll = new Set([funSlideIndex]);
 
-const AboutCarousel = props => {
+const AboutCarousel = () => {
   // variables
-  const { containerWidth, slideWidth } = props;
   const slideTitles = {1: "Education", 2: "History", 3: "What I Do For Fun"};
   const slideIndexes = {education: 1, history: 2, fun: 3};
   const [slideIndex, setSlideIndex] = useState(slideIndexes.education);
@@ -132,14 +131,19 @@ const AboutCarousel = props => {
         {[...Array(maxSlides)].map((num, i) => <div key={i} className="dot-action" onClick={() => changeSlide(i+1)}><div className={slideIndex === i+1 ? "dot selected" : "dot"} /></div>)}
       </div>
       <div className="div-about-carousel-window">
-        <div className="div-about-carousel-inner" style={{width: `${maxSlides * containerWidth}px`, right: `${containerWidth * slideIndex - containerWidth}px`}}>
-          <div className={slideIndex === slideIndexes.education ? "div-about-carousel-slide" : "div-about-carousel-slide about-carousel-slide-hide"} style={{width: `${slideWidth}px`}}>
+        <div className={
+          slideIndex === slideIndexes.education ? "div-about-carousel-inner div-about-carousel-inner-on-slide-one" :
+          (slideIndex === slideIndexes.history ? "div-about-carousel-inner div-about-carousel-inner-on-slide-two" :
+          (slideIndex === slideIndexes.fun ? "div-about-carousel-inner div-about-carousel-inner-on-slide-three" :
+          "div-about-carousel-inner"
+        ))}>
+          <div className={slideIndex === slideIndexes.education ? "div-about-carousel-slide-container" : "div-about-carousel-slide-container about-carousel-slide-container-hide"}>
             <EducationSlide />
           </div>
-          <div className={slideIndex === slideIndexes.history ? "div-about-carousel-slide" : "div-about-carousel-slide about-carousel-slide-hide"} style={{width: `${slideWidth}px`}}>
+          <div className={slideIndex === slideIndexes.history ? "div-about-carousel-slide-container" : "div-about-carousel-slide-container about-carousel-slide-container-hide"}>
             <HistorySlide />
           </div>
-          <div className={slideIndex === slideIndexes.fun ? "div-about-carousel-slide" : "div-about-carousel-slide about-carousel-slide-hide"} style={{width: `${slideWidth}px`}}>
+          <div className={slideIndex === slideIndexes.fun ? "div-about-carousel-slide-container" : "div-about-carousel-slide-container about-carousel-slide-container-hide"}>
             <FunSlide
               hobbyTabIdSelected={hobbyTabIdSelected}
               handleChangeTab={handleChangeTab}
@@ -151,10 +155,6 @@ const AboutCarousel = props => {
         </div>
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.movies &&
           <div className="div-about-fun-buttons">
-            {console.log("movies")}
-            {console.log("moviesVerticlePosition", moviesVerticlePosition)}
-            {console.log("moviesContentResolution.viewHeight", moviesContentResolution.viewHeight)}
-            {console.log("moviesContentResolution.totalHeight", moviesContentResolution.totalHeight)}
               <button className="top-button" onClick={scrollUp}>
               {(moviesVerticlePosition === 0) ?
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
@@ -171,10 +171,6 @@ const AboutCarousel = props => {
         }
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.music && musicContentResolution.totalHeight !== 0 &&
           <div className="div-about-fun-buttons">
-            {console.log("music")}
-            {console.log("musicVerticlePosition", musicVerticlePosition)}
-            {console.log("musicContentResolution.viewHeight", musicContentResolution.viewHeight)}
-            {console.log("musicContentResolution.totalHeight", musicContentResolution.totalHeight)}
               <button className="top-button" onClick={scrollUp}>
               {(musicVerticlePosition === 0) ?
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
@@ -191,10 +187,6 @@ const AboutCarousel = props => {
         }
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.videoGames &&
           <div className="div-about-fun-buttons">
-            {console.log("games")}
-            {console.log("gamesVerticlePosition", gamesVerticlePosition)}
-            {console.log("gamesContentResolution.viewHeight", gamesContentResolution.viewHeight)}
-            {console.log("gamesContentResolution.totalHeight", gamesContentResolution.totalHeight)}
               <button className="top-button" onClick={scrollUp}>
               {(gamesVerticlePosition === 0) ?
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
