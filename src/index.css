@@ -535,7 +535,9 @@ img {
   width: 400px;
 }
 .div-about-carousel-history-slide {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   text-align: center;
 }
@@ -545,26 +547,34 @@ img {
   font-weight: 600;
   text-shadow: 0.3rem 0.4rem #000000;
 }
-.div-about-carousel-history-slide h2 {
+.div-about-carousel-history-mobile-title-tabs {
+  display: none;
+}
+.div-about-carousel-history-phone-title-tabs {
+  display: none;
+}
+.div-about-carousel-history-slide-content h2 {
   font-size: 3.2rem;
   width: 100%;
   color: #009DFF;
   margin-bottom: 20px;
   text-decoration: underline;
 }
-.div-about-carousel-history-slide .row {
-  display: flex;
-  justify-content: center;
+.div-about-carousel-history-slide-content .row-container {
   margin-bottom: 40px;
 }
-.div-about-carousel-history-slide .row h3 {
-  margin-left: -10px;
+.div-about-carousel-history-slide-content .row {
+  display: flex;
+  justify-content: center;
 }
-.h3-about-history-built {
-  padding: 10px 10px 10px 48px;
+.div-about-carousel-history-slide-content h3 {
+  margin-left: -10px;
   color: #191970;
   font-size: 3rem;
   text-align: left;
+}
+.h3-about-history-built {
+  padding: 10px 10px 10px 48px;
   background: url('./img/built.svg');
   background-repeat: no-repeat;
   background-size: 40px 40px;
@@ -572,9 +582,6 @@ img {
 }
 .h3-about-history-position {
   padding: 10px 10px 10px 48px;
-  color: #191970;
-  font-size: 3rem;
-  text-align: left;
   background: url('./img/positions_held.svg');
   background-repeat: no-repeat;
   background-size: 75px auto;
@@ -583,27 +590,17 @@ img {
 .h3-about-history-college {
   position: relative;
   padding: 10px 10px 10px 30px;
-  color: #191970;
-  font-size: 3rem;
-  text-align: left;
 }
 .h3-about-history-college img {
   position: absolute;
-  left: -10px;
-  top: -17px;
+  left: -5px;
+  top: -18px;
   min-width: 60px;
   width: 60px;
-  max-width: 60px;
-  min-height: 50px;
-  height: 50px;
-  max-height: 50px;
   transform: rotate(-45deg);
 }
 .h3-about-history-coding {
   padding: 10px 10px 10px 48px;
-  color: #191970;
-  font-size: 3rem;
-  text-align: left;
   background: url('./img/coding_bootcamp.gif');
   background-repeat: no-repeat;
   background-size: 40px 40px;
@@ -1024,6 +1021,83 @@ img {
   .div-about-carousel-education-row img {
     margin-top: 20px;
   }
+  /*------------------- about-carousel-history ------------------*/
+  .div-about-carousel-history-slide-content {
+    position: relative;
+    width: 100%;
+  }
+  .div-about-carousel-history-slide-content .row-container {
+    margin: 0;
+  }
+  .div-about-carousel-history-mobile-title-tabs {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin-bottom: 20px;
+  }
+  .div-about-carousel-history-mobile-title-tabs button {
+    width: 50%;
+    padding: 10px 0;
+    background-color: #191970;
+    color: #00ffff;
+    border: none;
+    border-radius: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    outline: none;
+  }
+  .div-about-carousel-history-mobile-title-tabs .tablet-unselected {
+    border-bottom: none;
+  }
+  .div-about-carousel-history-mobile-title-tabs .tablet-selected {
+    border-bottom: 5px solid #00ffff;
+  }
+  .div-about-carousel-history-slide-content .tablet-selected {
+    z-index: 2;
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+  }
+  .div-about-carousel-history-slide-content .tablet-unselected {
+    z-index: 1;
+    opacity: 0;
+  }
+  .div-about-carousel-history-slide-content h2 {
+    display: none;
+  }
+  .div-about-carousel-history-slide-content .row-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .div-about-carousel-history-slide-content .row {
+    width: 100%;
+    margin: 0;
+  }
+  .div-about-carousel-history-slide-content h3 {
+    font-size: 2.4rem;
+  }
+  .h3-about-history-built {
+    background-size: 30px 30px;
+    background-position: 13px 6px;
+  }
+  .h3-about-history-position {
+    background-size: 50px auto;
+    background-position: 0px -2px;
+  }
+  .h3-about-history-college img {
+    left: 2px;
+    top: -12px;
+    min-width: 50px;
+    width: 50px;
+  }
+  .ul-about-history {
+    max-width: 270px;
+    margin-top: 0;
+  }
+  .ul-about-history li {
+    font-size: 1.6rem;
+  }
 }
 
 /*=============================================================*/
@@ -1120,6 +1194,12 @@ img {
   .div-about-carousel-slide-container {
     width: 420px;
   }
+  .div-about-carousel-inner-on-slide-two {
+    right: 420px;
+  }
+  .div-about-carousel-inner-on-slide-three {
+    right: 840px;
+  }
   /*------------------ about-carousel-education -----------------*/
   .div-about-carousel-education-row a {
     padding: 0 8px;
@@ -1138,6 +1218,114 @@ img {
   }
   .img-about-carousel-education-books {
     width: 100%;
+  }
+  /*------------------- about-carousel-history ------------------*/
+  .div-about-carousel-history-mobile-title-tabs {
+    display: none;
+  }
+  .div-about-carousel-history-phone-title-tabs {
+    display: block;
+    width: 100%;
+  }
+  .div-about-carousel-history-phone-title-tabs .tab-row {
+    display: flex;
+    width: 100%;
+  }
+  .div-about-carousel-history-phone-title-tabs button {
+    width: 50%;
+    padding: 12px 0 12px 50px;
+    background-color: #00ffff;
+    color: #191970;
+    border: none;
+    border-radius: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: left;
+    outline: none;
+  }
+  .div-about-carousel-history-phone-title-tabs .phone-selected {
+    border-bottom: 3px solid #191970;
+    transition: all 300ms ease-in-out;
+  }
+  .div-about-carousel-history-phone-title-tabs .phone-unselected {
+    border-bottom: 3px solid #00ffff;
+  }
+  .btn-about-history-built {
+    background: url('./img/built.svg');
+    background-repeat: no-repeat;
+    background-size: 30px auto;
+    background-position: 10px 8px;
+  }
+  .btn-about-history-position {
+    background: url('./img/positions_held.svg');
+    background-repeat: no-repeat;
+    background-size: 50px auto;
+    background-position: 0 -2px;
+  }
+  .btn-about-history-college {
+    position: relative;
+  }
+  .btn-about-history-college img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 50px;
+    width: 50px;
+  }
+  .btn-about-history-coding {
+    background: url('./img/coding_bootcamp.gif');
+    background-repeat: no-repeat;
+    background-size: 40px auto;
+    background-position: 5px 5px;
+  }
+  .div-about-carousel-history-slide-content .row {
+    position: relative;
+  }
+  .div-about-carousel-history-slide-content .section-phone-view {
+    position: absolute;
+    width: 100%;
+    padding-top: 20px;
+    border-right: 2px solid #00ffff;
+    border-bottom: 2px solid #00ffff;
+    border-left: 2px solid #00ffff;
+  }
+  .div-about-carousel-history-slide-content .tablet-selected {
+    z-index: auto;
+    transition: none;
+  }
+  .div-about-carousel-history-slide-content .tablet-unselected {
+    z-index: auto;
+    opacity: 1;
+  }
+  .div-about-carousel-history-slide-content .phone-selected {
+    z-index: 2;
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+  }
+  .div-about-carousel-history-slide-content .phone-unselected {
+    z-index: 1;
+    opacity: 0;
+  }
+  .h3-about-history-built {
+    display: none;
+  }
+  .h3-about-history-position {
+    display: none;
+  }
+  .h3-about-history-college {
+    display: none;
+  }
+  .h3-about-history-coding {
+    display: none;
+  }
+  .ul-about-history {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding-left: 30px;
+  }
+  .ul-about-history li {
+    font-size: 2rem;
   }
 }
 
@@ -1205,7 +1393,8 @@ img {
     height: 300px;
   }
   .div-about-carousel-slide-container {
-    width: 300px;
+    width: 280px;
+    height: 270px;
   }
   .about-carousel-education-mobile-selection {
     display: none;
@@ -1213,8 +1402,11 @@ img {
   .div-about-carousel-window {
     width: 280px;
   }
-  .div-about-carousel-slide-container {
-    width: 280px;
+  .div-about-carousel-inner-on-slide-two {
+    right: 280px;
+  }
+  .div-about-carousel-inner-on-slide-three {
+    right: 560px;
   }
   /*------------------ about-carousel-education -----------------*/
   .div-about-carousel-education-slide {
@@ -1253,6 +1445,42 @@ img {
   }
   .div-about-carousel-education-row img {
     display: none;
+  }
+  /*------------------- about-carousel-history ------------------*/
+  .div-about-carousel-history-phone-title-tabs {
+    display: flex;
+  }
+  .div-about-carousel-history-phone-title-tabs .tab-row {
+    width: 50%;
+  }
+  .div-about-carousel-history-phone-title-tabs button {
+    width: 50%;
+    padding: 19px 0;
+    font-size: 0;
+    background-position: center;
+  }
+  .btn-about-history-college {
+    padding: 0!important;
+    overflow-y: hidden;
+  }
+  .btn-about-history-college img {
+    position: absolute;
+    left: 10px;
+    top: -4px;
+    min-width: 50px;
+    width: 50px;
+  }
+  .div-about-carousel-history-slide-content .section-phone-view {
+    height: 210px;
+    overflow-y: scroll;
+  }
+  .ul-about-history {
+    max-width: none;
+    width: 100%;
+    margin: auto;
+  }
+  .ul-about-history li {
+    font-size: 1.8rem;
   }
 }
 
@@ -1351,6 +1579,26 @@ img {
   .div-about-carousel-slide-container {
     width: 240px;
   }
+  .div-about-carousel-inner-on-slide-two {
+    right: 240px;
+  }
+  .div-about-carousel-inner-on-slide-three {
+    right: 480px;
+  }
+  /*------------------- about-carousel-history ------------------*/
+  .btn-about-history-college img {
+    position: absolute;
+    left: 6px;
+    top: -4px;
+    min-width: 50px;
+    width: 50px;
+  }
+  .ul-about-history {
+    padding-left: 25px;
+  }
+  .ul-about-history li {
+    font-size: 1.6rem;
+  }
 }
 
 @keyframes bounce-arrow-before-420 {
@@ -1420,6 +1668,11 @@ img {
     max-width: 320px;
   }
   /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title {
+    width: 100%;
+    padding: 0 20px;
+    justify-content: space-between;
+  }
   .div-about-carousel-buttons-title button {
     width: 40px;
     font-size: 1.2rem;
@@ -1436,6 +1689,13 @@ img {
   }
   .div-about-carousel-slide-container {
     width: 200px;
+    height: 200px;
+  }
+  .div-about-carousel-inner-on-slide-two {
+    right: 200px;
+  }
+  .div-about-carousel-inner-on-slide-three {
+    right: 400px;
   }
   /*------------------ about-carousel-education -----------------*/
   .div-about-carousel-education-row a {
@@ -1444,6 +1704,21 @@ img {
   }
   .div-about-carousel-education-row h2 {
     font-size: 1.2rem;
+  }
+  /*------------------- about-carousel-history ------------------*/
+  .div-about-carousel-history-slide-content .section-phone-view {
+    height: 160px;
+    padding-top: 10px;
+  }
+  .btn-about-history-college img {
+    position: absolute;
+    left: 0;
+    top: -4px;
+    min-width: 50px;
+    width: 50px;
+  }
+  .ul-about-history li {
+    font-size: 1.4rem;
   }
 }
 
@@ -1504,6 +1779,9 @@ img {
     max-width: 250px;
   }
   /*------------------- about-carousel-globals ------------------*/
+  .div-about-carousel-buttons-title {
+    padding: 0 8px;
+  }
   .div-about-carousel-buttons-title button {
     width: 35px;
     padding: 7px 0;
@@ -1519,6 +1797,13 @@ img {
   }
   .div-about-carousel-slide-container {
     width: 160px;
+    height: 180px;
+  }
+  .div-about-carousel-inner-on-slide-two {
+    right: 160px;
+  }
+  .div-about-carousel-inner-on-slide-three {
+    right: 320px;
   }
   /*------------------ about-carousel-education -----------------*/
   .div-about-carousel-education-row a {
@@ -1527,6 +1812,27 @@ img {
   }
   .div-about-carousel-education-row h2 {
     font-size: 1.1rem;
+  }
+  .div-about-carousel-history-slide-content .section-phone-view {
+    height: 140px;
+  }
+  /*------------------- about-carousel-history ------------------*/
+  .btn-about-history-position {
+    background-position: -6px center!important;
+  }
+  .btn-about-history-college img {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    min-width: 40px;
+    width: 40px;
+  }
+  .btn-about-history-coding {
+    background-size: 30px auto;
+    background-position: center 7px;
+  }
+  .ul-about-history li {
+    font-size: 1.2rem;
   }
 }
 @keyframes bounce-arrow-before-320 {
