@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -19,13 +19,16 @@ const slidesIndexesWithScroll = new Set([funSlideIndex]);
 const AboutCarousel = () => {
   // variables
   const slideTitles = {1: "Education", 2: "History", 3: "What I Do For Fun"};
-  const slideIndexes = {education: 1, history: 2, fun: 3};
+  const [slideIndexes] = useState({education: 1, history: 2, fun: 3});
   const [slideIndex, setSlideIndex] = useState(slideIndexes.education);
   const [hasScrollUpDown, setHasScrollUpDown] = useState(false);
   const [hobbyTabIdSelected, setHobbyTabIdSelected] = useState(hobbyTabIds.movies);
-  const [moviesContentResolution, setMoviesContentResolution] = useState({totalHeight: 0, positionHeight: 0, listBlockHeight: 0, scrollHeight: 0});
-  const [musicContentResolution, setMusicContentResolution] = useState({totalHeight: 0, positionHeight: 0, listBlockHeight: 0, scrollHeight: 0});
-  const [gamesContentResolution, setGamesContentResolution] = useState({totalHeight: 0, positionHeight: 0, listBlockHeight: 0, scrollHeight: 0});
+  const [moviesContentVertPos, setMoviesContentVertPos] = useState(0);
+  const [musicContentVertPos, setMusicContentVertPos] = useState(0);
+  const [gamesContentVertPos, setGamesContentVertPos] = useState(0);
+  const [isMoviesScreenResized, setIsMoviesScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
+  const [isMusicScreenResized, setIsMusicScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
+  const [isGamesScreenResized, setIsGamesScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
 
   // carousel functions
   const next = () => {
@@ -95,114 +98,74 @@ const AboutCarousel = () => {
   }
 
   const sideTopBtnOnClick = () => {
-    const totalHeightRefreshed = getFunSlideTotalHeight();
-    const scrollHeightRefreshed = getFunSlideScrollHeight();
     if (hobbyTabIdSelected === hobbyTabIds.movies) {
-      const moviesPositionHeightRefreshed = moviesContentResolution.positionHeight - scrollHeightRefreshed;
+      const moviesPositionHeightRefreshed = moviesContentVertPos - getFunSlideScrollHeight();
       (moviesPositionHeightRefreshed < 0) ?
-        setMoviesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: totalHeightRefreshed - scrollHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed}) : 
-        setMoviesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: moviesPositionHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed});
+        setMoviesContentVertPos(getFunSlideTotalHeight() - getFunSlideScrollHeight()) : 
+        setMoviesContentVertPos(moviesPositionHeightRefreshed);
     } else if (hobbyTabIdSelected === hobbyTabIds.music) {
-      const musicPositionHeightRefreshed = moviesContentResolution.positionHeight - scrollHeightRefreshed;
+      const musicPositionHeightRefreshed = musicContentVertPos - getFunSlideScrollHeight();
       (musicPositionHeightRefreshed < 0) ?
-        setMusicContentResolution({totalHeight: totalHeightRefreshed, positionHeight: totalHeightRefreshed - scrollHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed}) : 
-        setMusicContentResolution({totalHeight: totalHeightRefreshed, positionHeight: musicPositionHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed});
+        setMusicContentVertPos(getFunSlideTotalHeight() - getFunSlideScrollHeight()) : 
+        setMusicContentVertPos(musicPositionHeightRefreshed);
     } else if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
-      const gamesPositionHeightRefreshed = moviesContentResolution.positionHeight - scrollHeightRefreshed;
+      const gamesPositionHeightRefreshed = gamesContentVertPos - getFunSlideScrollHeight();
       (gamesPositionHeightRefreshed < 0) ?
-        setGamesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: totalHeightRefreshed - scrollHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed}) : 
-        setGamesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: gamesPositionHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed});
+        setGamesContentVertPos(getFunSlideTotalHeight() - getFunSlideScrollHeight()) : 
+        setGamesContentVertPos(gamesPositionHeightRefreshed);
     }
   }
 
   const sideBotBtnOnClick = () => {
-    const totalHeightRefreshed = getFunSlideTotalHeight();
-    const scrollHeightRefreshed = getFunSlideScrollHeight();
     if (hobbyTabIdSelected === hobbyTabIds.movies) {
-      const moviesPositionHeightRefreshed = moviesContentResolution.positionHeight + scrollHeightRefreshed;
-      (moviesPositionHeightRefreshed >= totalHeightRefreshed) ?
-        setMoviesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: 0, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed}) : 
-        setMoviesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: moviesPositionHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed});
+      const moviesPositionHeightRefreshed = moviesContentVertPos + getFunSlideScrollHeight();
+      (moviesPositionHeightRefreshed >= getFunSlideTotalHeight()) ?
+        setMoviesContentVertPos(0) : 
+        setMoviesContentVertPos(moviesPositionHeightRefreshed);
     } else if (hobbyTabIdSelected === hobbyTabIds.music) {
-      const musicPositionHeightRefreshed = musicContentResolution.positionHeight + scrollHeightRefreshed;
-      (musicPositionHeightRefreshed >= totalHeightRefreshed) ?
-        setMusicContentResolution({totalHeight: totalHeightRefreshed, positionHeight: 0, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed}) : 
-        setMusicContentResolution({totalHeight: totalHeightRefreshed, positionHeight: musicPositionHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed});
+      const musicPositionHeightRefreshed = musicContentVertPos + getFunSlideScrollHeight();
+      (musicPositionHeightRefreshed >= getFunSlideTotalHeight()) ?
+        setMusicContentVertPos(0) : 
+        setMusicContentVertPos(musicPositionHeightRefreshed);
     } else if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
-      const gamesPositionHeightRefreshed = gamesContentResolution.positionHeight + scrollHeightRefreshed;
-      (gamesPositionHeightRefreshed >= totalHeightRefreshed) ?
-        setGamesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: 0, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed}) : 
-        setGamesContentResolution({totalHeight: totalHeightRefreshed, positionHeight: gamesPositionHeightRefreshed, listBlockHeight: getFunSlideListBlockHeight(), scrollHeight: scrollHeightRefreshed});
+      const gamesPositionHeightRefreshed = gamesContentVertPos + getFunSlideScrollHeight();
+      (gamesPositionHeightRefreshed >= getFunSlideTotalHeight()) ?
+        setGamesContentVertPos(0) : 
+        setGamesContentVertPos(gamesPositionHeightRefreshed);
     }
   }
 
   // setup
-  useEffect(() => {
-    const handleResize = debounce(() => {
-      if (hobbyTabIdSelected === hobbyTabIds.movies) {
-        const newContentResolution = {}
-        newContentResolution.totalHeight = getFunSlideTotalHeight();
-        newContentResolution.positionHeight = moviesContentResolution.positionHeight;
-        newContentResolution.listBlockHeight = moviesContentResolution.listBlockHeight;
-        newContentResolution.scrollHeight = getFunSlideScrollHeight();
-        console.log(newContentResolution)
-        setMoviesContentResolution(newContentResolution);
-      }
-      if (hobbyTabIdSelected === hobbyTabIds.music) {
-        const newContentResolution = {}
-        newContentResolution.totalHeight = getFunSlideTotalHeight();
-        newContentResolution.positionHeight = musicContentResolution.positionHeight;
-        newContentResolution.listBlockHeight = musicContentResolution.listBlockHeight;
-        newContentResolution.scrollHeight = getFunSlideScrollHeight();
-        setMusicContentResolution(newContentResolution);
-      }
-      if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
-        const newContentResolution = {}
-        newContentResolution.totalHeight = getFunSlideTotalHeight();
-        newContentResolution.positionHeight = gamesContentResolution.positionHeight;
-        newContentResolution.listBlockHeight = gamesContentResolution.listBlockHeight;
-        newContentResolution.scrollHeight = getFunSlideScrollHeight();
-        setGamesContentResolution(newContentResolution);
-      }
-    }, 100);
-
-    window.addEventListener('load', handleResize);
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('load', handleResize);
-      window.removeEventListener('resize', handleResize);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [moviesContentResolution, musicContentResolution, gamesContentResolution]);
-
   useLayoutEffect(() => {
-    if (hobbyTabIdSelected === hobbyTabIds.movies && moviesContentResolution.totalHeight === 0) {
-      const newContentResolution = {}
-      newContentResolution.totalHeight = getFunSlideTotalHeight();
-      newContentResolution.positionHeight = 0;
-      newContentResolution.listBlockHeight = getFunSlideListBlockHeight();
-      newContentResolution.scrollHeight = getFunSlideScrollHeight();
-      setMoviesContentResolution(newContentResolution);
+    if (slideIndex === slideIndexes.fun) {
+      const handleResize = debounce(() => {
+        console.log('hobbyTabIdSelected', hobbyTabIdSelected);
+        console.log('hobbyTabIds.movies', hobbyTabIds.movies);
+        if (hobbyTabIdSelected === hobbyTabIds.movies) {
+          console.log('useLayoutEffect', isMoviesScreenResized);
+          setIsMoviesScreenResized(!isMoviesScreenResized);
+        }
+        if (hobbyTabIdSelected === hobbyTabIds.music) {
+          setIsMusicScreenResized(!isMusicScreenResized);
+        }
+        if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
+          setIsGamesScreenResized(!isGamesScreenResized);
+        }
+        console.log('---------------------')
+      }, 100);
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      }
     }
-    if (hobbyTabIdSelected === hobbyTabIds.music && musicContentResolution.totalHeight === 0) {
-      const newContentResolution = {}
-      newContentResolution.totalHeight = getFunSlideTotalHeight();
-      newContentResolution.positionHeight = 0;
-      newContentResolution.listBlockHeight = getFunSlideListBlockHeight();
-      newContentResolution.scrollHeight = getFunSlideScrollHeight();
-      setMusicContentResolution(newContentResolution);
-    }
-    if (hobbyTabIdSelected === hobbyTabIds.videoGames && gamesContentResolution.totalHeight === 0) {
-      const newContentResolution = {}
-      newContentResolution.totalHeight = getFunSlideTotalHeight();
-      newContentResolution.positionHeight = 0;
-      newContentResolution.listBlockHeight = getFunSlideListBlockHeight();
-      newContentResolution.scrollHeight = getFunSlideScrollHeight();
-      setGamesContentResolution(newContentResolution);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hobbyTabIdSelected]);
+  },[
+      slideIndex, slideIndexes, hobbyTabIdSelected, 
+      isMoviesScreenResized, isMusicScreenResized, isGamesScreenResized, 
+      setIsMoviesScreenResized, setIsMusicScreenResized, setIsGamesScreenResized
+    ]
+  );
 
   // render
   return (
@@ -232,22 +195,22 @@ const AboutCarousel = () => {
             <FunSlide
               hobbyTabIdSelected={hobbyTabIdSelected}
               handleChangeTab={handleChangeTab}
-              moviesVerticlePosition={moviesContentResolution.positionHeight}
-              musicVerticlePosition={musicContentResolution.positionHeight}
-              gamesVerticlePosition={gamesContentResolution.positionHeight}
+              moviesVerticlePosition={moviesContentVertPos}
+              musicVerticlePosition={musicContentVertPos}
+              gamesVerticlePosition={gamesContentVertPos}
             />
           </div>
         </div>
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.movies && 
           <div className="div-about-fun-buttons">
               <button className="top-button" onClick={sideTopBtnOnClick}>
-              {(moviesContentResolution.positionHeight === 0) ? 
+              {(moviesContentVertPos === 0) ? 
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
                 <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
               }
               </button>
               <button className="bottom-button" onClick={sideBotBtnOnClick}>
-                {(moviesContentResolution.positionHeight + moviesContentResolution.scrollHeight >= moviesContentResolution.totalHeight) ? 
+                {(moviesContentVertPos + getFunSlideScrollHeight() >= getFunSlideTotalHeight()) ? 
                   <span className="up-to-top" style={{paddingBottom: "2px"}}><FontAwesomeIcon icon={faChevronUp}/><FontAwesomeIcon icon={faChevronUp}/></span> :
                   <span style={{paddingTop: "4px"}}><FontAwesomeIcon icon={faChevronDown}/></span>
                 }
@@ -257,13 +220,13 @@ const AboutCarousel = () => {
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.music &&
           <div className="div-about-fun-buttons">
               <button className="top-button" onClick={sideTopBtnOnClick}>
-              {(musicContentResolution.positionHeight === 0) ? 
+              {(musicContentVertPos === 0) ? 
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
                 <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
               }
               </button>
               <button className="bottom-button" onClick={sideBotBtnOnClick}>
-                {(musicContentResolution.positionHeight + musicContentResolution.scrollHeight >= musicContentResolution.totalHeight) ? 
+                {(musicContentVertPos + getFunSlideScrollHeight() >= getFunSlideTotalHeight()) ? 
                   <span className="up-to-top" style={{paddingBottom: "2px"}}><FontAwesomeIcon icon={faChevronUp}/><FontAwesomeIcon icon={faChevronUp}/></span> :
                   <span style={{paddingTop: "4px"}}><FontAwesomeIcon icon={faChevronDown}/></span>
                 }
@@ -273,13 +236,13 @@ const AboutCarousel = () => {
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.videoGames &&
           <div className="div-about-fun-buttons">
               <button className="top-button" onClick={sideTopBtnOnClick}>
-              {(gamesContentResolution.positionHeight === 0) ? 
+              {(gamesContentVertPos === 0) ? 
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
                 <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
               }
               </button>
               <button className="bottom-button" onClick={sideBotBtnOnClick}>
-                {(gamesContentResolution.positionHeight + gamesContentResolution.scrollHeight >= gamesContentResolution.totalHeight) ? 
+                {(gamesContentVertPos + getFunSlideScrollHeight() >= getFunSlideTotalHeight()) ? 
                   <span className="up-to-top" style={{paddingBottom: "2px"}}><FontAwesomeIcon icon={faChevronUp}/><FontAwesomeIcon icon={faChevronUp}/></span> :
                   <span style={{paddingTop: "4px"}}><FontAwesomeIcon icon={faChevronDown}/></span>
                 }
