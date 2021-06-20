@@ -1284,7 +1284,7 @@ img {
   .div-about-carousel-history-slide-content .section-phone-view {
     position: absolute;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 10px;
     border-right: 2px solid #00ffff;
     border-bottom: 2px solid #00ffff;
     border-left: 2px solid #00ffff;
@@ -1472,7 +1472,69 @@ img {
   }
   .div-about-carousel-history-slide-content .section-phone-view {
     height: 210px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #d3d3d3 #ffffff;
+  }
+  .div-about-carousel-history-slide-content .section-phone-view::-webkit-scrollbar {
+    width: 11px;
+  }
+  .div-about-carousel-history-slide-content .section-phone-view::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  .div-about-carousel-history-slide-content .section-phone-view::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+    border-radius: 6px;
+    border: 3px solid #ffffff;
+  }
+  .div-about-carousel-history-slide-content h3 {
+    display: block;
+    margin: 0 0 10px;
+    padding: 0;
+    background-image: none;
+    color: #1e90ff;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .h3-about-history-college img {
+    display: none;
+  }
+  .h3-about-history-built::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 5px;
+    border-bottom: 3px solid #0000f6;
+  }
+  .h3-about-history-position::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 5px;
+    border-bottom: 3px solid #0000f6;
+  }
+  .h3-about-history-college::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 5px;
+    border-bottom: 3px solid #0000f6;
+  }
+  .h3-about-history-coding::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 5px;
+    border-bottom: 3px solid #0000f6;
   }
   .ul-about-history {
     max-width: none;
@@ -1708,7 +1770,6 @@ img {
   /*------------------- about-carousel-history ------------------*/
   .div-about-carousel-history-slide-content .section-phone-view {
     height: 160px;
-    padding-top: 10px;
   }
   .btn-about-history-college img {
     position: absolute;
@@ -1716,6 +1777,12 @@ img {
     top: -4px;
     min-width: 50px;
     width: 50px;
+  }
+  .div-about-carousel-history-slide-content h3 {
+    font-size: 1.8rem;
+  }
+  .div-about-carousel-history-slide-content h3::after {
+    border-bottom: 2px solid #0000f6;
   }
   .ul-about-history li {
     font-size: 1.4rem;
@@ -1830,6 +1897,9 @@ img {
   .btn-about-history-coding {
     background-size: 30px auto;
     background-position: center 7px;
+  }
+  .div-about-carousel-history-slide-content h3 {
+    font-size: 1.6rem;
   }
   .ul-about-history li {
     font-size: 1.2rem;
