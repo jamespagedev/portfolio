@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useEffect, useState } from 'react';
+import debounce from 'lodash.debounce';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight, faChevronLeft, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -136,6 +137,45 @@ const AboutCarousel = () => {
   }
 
   // setup
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      if (hobbyTabIdSelected === hobbyTabIds.movies) {
+        const newContentResolution = {}
+        newContentResolution.totalHeight = getFunSlideTotalHeight();
+        newContentResolution.positionHeight = moviesContentResolution.positionHeight;
+        newContentResolution.listBlockHeight = moviesContentResolution.listBlockHeight;
+        newContentResolution.scrollHeight = getFunSlideScrollHeight();
+        console.log(newContentResolution)
+        setMoviesContentResolution(newContentResolution);
+      }
+      if (hobbyTabIdSelected === hobbyTabIds.music) {
+        const newContentResolution = {}
+        newContentResolution.totalHeight = getFunSlideTotalHeight();
+        newContentResolution.positionHeight = musicContentResolution.positionHeight;
+        newContentResolution.listBlockHeight = musicContentResolution.listBlockHeight;
+        newContentResolution.scrollHeight = getFunSlideScrollHeight();
+        setMusicContentResolution(newContentResolution);
+      }
+      if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
+        const newContentResolution = {}
+        newContentResolution.totalHeight = getFunSlideTotalHeight();
+        newContentResolution.positionHeight = gamesContentResolution.positionHeight;
+        newContentResolution.listBlockHeight = gamesContentResolution.listBlockHeight;
+        newContentResolution.scrollHeight = getFunSlideScrollHeight();
+        setGamesContentResolution(newContentResolution);
+      }
+    }, 100);
+
+    window.addEventListener('load', handleResize);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('load', handleResize);
+      window.removeEventListener('resize', handleResize);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [moviesContentResolution, musicContentResolution, gamesContentResolution]);
+
   useLayoutEffect(() => {
     if (hobbyTabIdSelected === hobbyTabIds.movies && moviesContentResolution.totalHeight === 0) {
       const newContentResolution = {}
@@ -198,10 +238,10 @@ const AboutCarousel = () => {
             />
           </div>
         </div>
-        {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.movies &&
+        {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.movies && 
           <div className="div-about-fun-buttons">
               <button className="top-button" onClick={sideTopBtnOnClick}>
-              {(moviesContentResolution.positionHeight === 0) ?
+              {(moviesContentResolution.positionHeight === 0) ? 
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
                 <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
               }
@@ -217,7 +257,7 @@ const AboutCarousel = () => {
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.music &&
           <div className="div-about-fun-buttons">
               <button className="top-button" onClick={sideTopBtnOnClick}>
-              {(musicContentResolution.positionHeight === 0) ?
+              {(musicContentResolution.positionHeight === 0) ? 
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
                 <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
               }
@@ -233,7 +273,7 @@ const AboutCarousel = () => {
         {hasScrollUpDown && hobbyTabIdSelected === hobbyTabIds.videoGames &&
           <div className="div-about-fun-buttons">
               <button className="top-button" onClick={sideTopBtnOnClick}>
-              {(gamesContentResolution.positionHeight === 0) ?
+              {(gamesContentResolution.positionHeight === 0) ? 
                 <span className="down-to-bottom" style={{paddingTop: "2px"}}><FontAwesomeIcon icon={faChevronDown}/><FontAwesomeIcon icon={faChevronDown}/></span> :
                 <span style={{paddingBottom: "4px"}}><FontAwesomeIcon icon={faChevronUp}/></span>
               }

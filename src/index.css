@@ -1507,7 +1507,7 @@ img {
     width: 50%;
     margin: 0 auto;
     padding-top: 5px;
-    border-bottom: 3px solid #0000f6;
+    border-bottom: 3px solid #191970;
   }
   .h3-about-history-position::after {
     content: "";
@@ -1516,7 +1516,7 @@ img {
     width: 40%;
     margin: 0 auto;
     padding-top: 5px;
-    border-bottom: 3px solid #0000f6;
+    border-bottom: 3px solid #191970;
   }
   .h3-about-history-college::after {
     content: "";
@@ -1525,7 +1525,7 @@ img {
     width: 60%;
     margin: 0 auto;
     padding-top: 5px;
-    border-bottom: 3px solid #0000f6;
+    border-bottom: 3px solid #191970;
   }
   .h3-about-history-coding::after {
     content: "";
@@ -1534,7 +1534,7 @@ img {
     width: 50%;
     margin: 0 auto;
     padding-top: 5px;
-    border-bottom: 3px solid #0000f6;
+    border-bottom: 3px solid #191970;
   }
   .ul-about-history {
     max-width: none;
