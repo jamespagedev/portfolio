@@ -357,7 +357,7 @@ img {
   display: block;
   width: 860px;
   opacity: 1;
-  transition: all 1000ms ease-in-out; /* double size of about-carousel-slide-hide */
+  transition: opacity 1000ms ease-in-out; /* double size of about-carousel-slide-hide */
 }
 .about-carousel-slide-container-hide {
   opacity: 0;
@@ -808,6 +808,11 @@ img {
   border-bottom: 2px solid #191970;
   margin: 3rem auto 2rem;
 }
+
+.div-about-fun-tabs figure {
+  display: none;
+}
+
 .div-about-fun-imdb-icon {
   /* vertical-align: middle; */
   padding-left: 35px;
@@ -1098,6 +1103,25 @@ img {
   .ul-about-history li {
     font-size: 1.6rem;
   }
+  /*--------------------- about-carousel-fun --------------------*/
+  .div-about-fun-buttons button {
+    height: 65px;
+    width: 49px;
+    font-size: 2.5rem;
+  }
+  .div-about-fun-buttons button:hover {
+    color: #ffffff;
+    background-color: #0087ce;
+  }
+  .div-about-fun-buttons .down-to-bottom svg:last-child {
+    margin-top: -9px;
+  }
+  .div-about-fun-buttons .up-to-top svg:first-child {
+    margin-bottom: -9px;
+  }
+  .div-about-fun-content-lists ul p {
+    text-decoration: underline;
+  }
 }
 
 /*=============================================================*/
@@ -1327,6 +1351,83 @@ img {
   .ul-about-history li {
     font-size: 2rem;
   }
+  /*--------------------- about-carousel-fun --------------------*/
+  .div-about-fun-tabs {
+    justify-content: center;
+    width: 100%;
+    border: none;
+    margin: 0 0 20px 0;
+  }
+  .div-about-fun-tabs button {
+    font-size: 1.8rem;
+    margin: 0 10px;
+    background: none;
+  }
+  .div-about-fun-tabs button:first-child {
+    margin-left: 0;
+  }
+  .div-about-fun-tabs button:last-child {
+    margin-right: 0;
+  }
+  .button-about-fun-tab {
+    color: #191970;
+    padding: 10px;
+    border: none;
+  }
+  .button-about-fun-tab:hover {
+    background: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .button-about-fun-tab-selected {
+    color: aqua;
+    padding: 10px;
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .button-about-fun-tab-selected:hover {
+    cursor: pointer;
+  }
+  .div-about-fun-tabs figure {
+    display: block;
+    padding: 12px;
+    border: 2px solid #191970;
+    border-radius: 50%;
+  }
+  .button-about-fun-tab figure {
+    background: none;
+  }
+  .button-about-fun-tab-selected figure {
+    background: #191970;
+  }
+  .div-about-fun-tabs span {
+    display: none;
+  }
+  .div-about-fun-buttons button {
+    height: 54px;
+    width: 43px;
+    font-size: 2rem;
+  }
+  .div-about-fun-buttons .down-to-bottom svg:last-child {
+    margin-top: -7px;
+  }
+  .div-about-fun-buttons .up-to-top svg:first-child {
+    margin-bottom: -7px;
+  }
+  .div-about-fun-content-lists ul {
+    max-width: 420px;
+    height: auto;
+    margin: 0;
+  }
+  .div-about-fun-content-lists ul li {
+    margin: 0;
+    padding: 5px 0;
+  }
+  .div-about-fun-content-lists ul p {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
 }
 
 /*=============================================================*/
@@ -1544,6 +1645,35 @@ img {
   .ul-about-history li {
     font-size: 1.8rem;
   }
+  /*--------------------- about-carousel-fun --------------------*/
+  .div-about-fun-tabs {
+    margin: 0 0 15px 0;
+  }
+  .div-about-fun-buttons button {
+    height: 48px;
+    width: 38px;
+    font-size: 1.6rem;
+  }
+  .div-about-fun-buttons .down-to-bottom svg:last-child {
+    margin-top: -6px;
+  }
+  .div-about-fun-buttons .up-to-top svg:first-child {
+    margin-bottom: -6px;
+  }
+  .div-about-fun-youtube-icon {
+    padding-left: 30px;
+    background-size: 28px 17px;
+    background-position: left 4px;
+  }
+  .div-about-fun-content-lists ul {
+    max-width: 280px;
+  }
+  .div-about-fun-content-lists ul li {
+    padding: 2.5px 0;
+  }
+  .div-about-fun-content-lists ul p {
+    font-size: 1.2rem;
+  }
 }
 
 @keyframes bounce-arrow-before-576 {
@@ -1660,6 +1790,36 @@ img {
   }
   .ul-about-history li {
     font-size: 1.6rem;
+  }
+  /*--------------------- about-carousel-fun --------------------*/
+  .button-about-fun-tab-selected {
+    padding: 5px;
+  }
+  .div-about-fun-tabs figure {
+    padding: 9px;
+  }
+  .div-about-fun-buttons button {
+    height: 45px;
+    width: 36px;
+    font-size: 1.4rem;
+  }
+  .div-about-fun-buttons span {
+    padding-top: 0!important;
+  }
+  .div-about-fun-buttons .down-to-bottom svg:last-child {
+    margin-top: -5px;
+  }
+  .div-about-fun-buttons .up-to-top svg:first-child {
+    margin-bottom: -5px;
+  }
+  .div-about-fun-content-lists ul {
+    max-width: 240px;
+  }
+  .div-about-fun-content-lists ul li {
+    padding: 1px 0;
+  }
+  .div-about-fun-content-lists ul p {
+    font-size: 1.1rem;
   }
 }
 
@@ -1787,6 +1947,37 @@ img {
   .ul-about-history li {
     font-size: 1.4rem;
   }
+  /*--------------------- about-carousel-fun --------------------*/
+  .div-about-fun-tabs {
+    justify-content: space-between;
+    margin: 0;
+  }
+  .div-about-fun-tabs button {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  .div-about-fun-buttons button {
+    height: 40px;
+    width: 34px;
+    font-size: 1.2rem;
+  }
+  .div-about-fun-tabs figure {
+    padding: 6px;
+  }
+  .div-about-fun-buttons .down-to-bottom svg:last-child {
+    margin-top: -4px;
+  }
+  .div-about-fun-buttons .up-to-top svg:first-child {
+    margin-bottom: -4px;
+  }
+  .div-about-fun-youtube-icon {
+    padding-left: 26px;
+    background-size: 25px 14px;
+    background-position: left 5px;
+  }
+  .div-about-fun-content-lists ul li {
+    padding: 0;
+  }
 }
 
 @keyframes bounce-arrow-before-360 {
@@ -1903,6 +2094,18 @@ img {
   }
   .ul-about-history li {
     font-size: 1.2rem;
+  }
+  /*--------------------- about-carousel-fun --------------------*/
+  .div-about-fun-buttons button {
+    height: 35px;
+    width: 28px;
+    font-size: 1.2rem;
+  }
+  .div-about-fun-buttons .down-to-bottom svg:last-child {
+    margin-top: -4px;
+  }
+  .div-about-fun-buttons .up-to-top svg:first-child {
+    margin-bottom: -4px;
   }
 }
 @keyframes bounce-arrow-before-320 {

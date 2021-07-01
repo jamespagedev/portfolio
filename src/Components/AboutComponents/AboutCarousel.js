@@ -26,9 +26,7 @@ const AboutCarousel = () => {
   const [moviesContentVertPos, setMoviesContentVertPos] = useState(0);
   const [musicContentVertPos, setMusicContentVertPos] = useState(0);
   const [gamesContentVertPos, setGamesContentVertPos] = useState(0);
-  const [isMoviesScreenResized, setIsMoviesScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
-  const [isMusicScreenResized, setIsMusicScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
-  const [isGamesScreenResized, setIsGamesScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
+  const [isScreenResized, setIsScreenResized] = useState(true); // note: the set*(!var) tells the jsx to re-render, we don't care if it's true or false
 
   // carousel functions
   const next = () => {
@@ -65,7 +63,19 @@ const AboutCarousel = () => {
   }
 
   const getFunSlideListBlockHeight = () => {
-    if (hobbyTabIdSelected === hobbyTabIds.movies) {
+    if (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 180 ) {
+      console.log('here');
+      return 100; // 4 rows with height of 25px
+    } else if (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 200 ) {
+      return 125; // 5 rows with height of 25px
+    } else if ( document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 270 &&
+                document.getElementById('id-about-carousel-slide-container-fun').clientWidth === 240 ) {
+      return 162; // 5 rows with height of 30px
+    } else if (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 270 ) {
+      return 150; // 5 rows with height of 30px
+    } else if (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 365 ) {
+      return 245; // 7 rows with height of 35px
+    } else if (hobbyTabIdSelected === hobbyTabIds.movies) {
       return document.getElementById('movies-content-list-default').clientHeight;
     } else if (hobbyTabIdSelected === hobbyTabIds.music) {
       return document.getElementById('music-content-list-default').clientHeight;
@@ -76,14 +86,9 @@ const AboutCarousel = () => {
   }
 
   const getFunSlideRowNum = () => {
-    if (hobbyTabIdSelected === hobbyTabIds.movies) {
-      return Math.floor(document.getElementById('id-div-about-carousel-window').clientHeight / getFunSlideListBlockHeight());
-    } else if (hobbyTabIdSelected === hobbyTabIds.music) {
-      return Math.floor(document.getElementById('id-div-about-carousel-window').clientHeight / getFunSlideListBlockHeight());
-    } else if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
-      return Math.floor(document.getElementById('id-div-about-carousel-window').clientHeight / getFunSlideListBlockHeight());
-    }
-    return 0;
+    return (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 270) ? 
+      Math.floor(document.getElementById('id-about-carousel-slide-container-fun').clientHeight / getFunSlideListBlockHeight()) : 
+      Math.floor(document.getElementById('id-div-about-carousel-window').clientHeight / getFunSlideListBlockHeight());
   }
 
   const getFunSlideScrollHeight = () => {
@@ -139,33 +144,16 @@ const AboutCarousel = () => {
   useLayoutEffect(() => {
     if (slideIndex === slideIndexes.fun) {
       const handleResize = debounce(() => {
-        console.log('hobbyTabIdSelected', hobbyTabIdSelected);
-        console.log('hobbyTabIds.movies', hobbyTabIds.movies);
-        if (hobbyTabIdSelected === hobbyTabIds.movies) {
-          console.log('useLayoutEffect', isMoviesScreenResized);
-          setIsMoviesScreenResized(!isMoviesScreenResized);
-        }
-        if (hobbyTabIdSelected === hobbyTabIds.music) {
-          setIsMusicScreenResized(!isMusicScreenResized);
-        }
-        if (hobbyTabIdSelected === hobbyTabIds.videoGames) {
-          setIsGamesScreenResized(!isGamesScreenResized);
-        }
-        console.log('---------------------')
+        setIsScreenResized(!isScreenResized);
       }, 100);
 
-      window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', handleResize, false);
 
       return () => {
-        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('resize', handleResize, false);
       }
     }
-  },[
-      slideIndex, slideIndexes, hobbyTabIdSelected, 
-      isMoviesScreenResized, isMusicScreenResized, isGamesScreenResized, 
-      setIsMoviesScreenResized, setIsMusicScreenResized, setIsGamesScreenResized
-    ]
-  );
+  },[slideIndex, slideIndexes, hobbyTabIdSelected, isScreenResized, setIsScreenResized]);
 
   // render
   return (
@@ -191,7 +179,7 @@ const AboutCarousel = () => {
           <div className={slideIndex === slideIndexes.history ? "div-about-carousel-slide-container" : "div-about-carousel-slide-container about-carousel-slide-container-hide"}>
             <HistorySlide />
           </div>
-          <div className={slideIndex === slideIndexes.fun ? "div-about-carousel-slide-container" : "div-about-carousel-slide-container about-carousel-slide-container-hide"}>
+          <div id="id-about-carousel-slide-container-fun" className={slideIndex === slideIndexes.fun ? "div-about-carousel-slide-container" : "div-about-carousel-slide-container about-carousel-slide-container-hide"}>
             <FunSlide
               hobbyTabIdSelected={hobbyTabIdSelected}
               handleChangeTab={handleChangeTab}

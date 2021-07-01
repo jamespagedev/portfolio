@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faVideo, faMusic, faGamepad } from '@fortawesome/free-solid-svg-icons'
 
 // Components
 import MoviesContent from './MoviesContent.js';
@@ -23,21 +25,21 @@ const FunSlide = props => {
             "button-about-fun-tab"
           }
           onClick={() => handleChangeTab(hobbyTabIds.movies)}
-        >Movies</button>
+        ><figure><FontAwesomeIcon icon={faVideo}/></figure><span>Movies</span></button>
         <button
           className={hobbyTabIdSelected === hobbyTabIds.music ?
             "button-about-fun-tab-selected" :
             "button-about-fun-tab"
           }
           onClick={() => handleChangeTab(hobbyTabIds.music)}
-        >Music</button>
+        ><figure><FontAwesomeIcon icon={faMusic}/></figure><span>Music</span></button>
         <button
           className={hobbyTabIdSelected === hobbyTabIds.videoGames ?
             "button-about-fun-tab-selected" :
             "button-about-fun-tab"
           }
           onClick={() => handleChangeTab(hobbyTabIds.videoGames)}
-        >Video&nbsp;Games</button>
+        ><figure><FontAwesomeIcon icon={faGamepad}/></figure><span>Video&nbsp;Games</span></button>
       </div>
       <div className="div-about-fun-content">
         <MoviesContent isMoviesSelected={hobbyTabIdSelected === hobbyTabIds.movies} moviesVerticlePosition={moviesVerticlePosition} />
