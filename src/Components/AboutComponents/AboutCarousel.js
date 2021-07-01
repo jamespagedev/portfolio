@@ -73,7 +73,8 @@ const AboutCarousel = () => {
       return 162; // 5 rows with height of 30px
     } else if (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 270 ) {
       return 150; // 5 rows with height of 30px
-    } else if (document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 365 ) {
+    } else if ( document.getElementById('id-about-carousel-slide-container-fun').clientHeight <= 365 &&
+                document.getElementById('id-about-carousel-slide-container-fun').clientWidth !== 600 ) {
       return 245; // 7 rows with height of 35px
     } else if (hobbyTabIdSelected === hobbyTabIds.movies) {
       return document.getElementById('movies-content-list-default').clientHeight;
