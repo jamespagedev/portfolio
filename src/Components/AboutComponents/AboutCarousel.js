@@ -31,24 +31,25 @@ const AboutCarousel = () => {
   // carousel functions
   const next = () => {
     const nextSlideIndex = (slideIndex + 1) > maxSlides ? 1 : slideIndex + 1
-    setSlideIndex(nextSlideIndex);
-    slidesIndexesWithScroll.has(nextSlideIndex) ? setHasScrollUpDown(true) : setHasScrollUpDown(false);
+    Promise.resolve(setSlideIndex(nextSlideIndex))
+    .then(() => slidesIndexesWithScroll.has(nextSlideIndex) ? setHasScrollUpDown(true) : setHasScrollUpDown(false))
   }
 
   const prev = () => {
     const prevSlideIndex = (slideIndex - 1) < 1 ? maxSlides : slideIndex - 1
-    setSlideIndex(prevSlideIndex);
-    slidesIndexesWithScroll.has(prevSlideIndex) ? setHasScrollUpDown(true) : setHasScrollUpDown(false);
+    Promise.resolve(setSlideIndex(prevSlideIndex))
+    .then(() => slidesIndexesWithScroll.has(prevSlideIndex) ? setHasScrollUpDown(true) : setHasScrollUpDown(false))
   }
 
   const changeSlide = (slideNum) => {
-    setSlideIndex(slideNum);
-    slidesIndexesWithScroll.has(slideNum) ? setHasScrollUpDown(true) : setHasScrollUpDown(false);
+    Promise.resolve(setSlideIndex(slideNum))
+    .then(() => slidesIndexesWithScroll.has(slideNum) ? setHasScrollUpDown(true) : setHasScrollUpDown(false))
   }
 
   // fun slide functions
   const handleChangeTab = (tabSelected) => {
-    setHobbyTabIdSelected(tabSelected)
+    Promise.resolve(setHobbyTabIdSelected(tabSelected))
+    .then(() => setIsScreenResized(!isScreenResized));
   }
 
   const getFunSlideTotalHeight = () => {

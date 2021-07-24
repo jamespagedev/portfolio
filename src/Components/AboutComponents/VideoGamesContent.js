@@ -86,7 +86,7 @@ const VideoGamesContent = props => {
         <li><div className="div-pc-gamer-logo"><p>Lineage 2 (2003 - 2008)</p></div></li>
         <li><div className="div-pc-gamer-logo"><p>Ragnarok Online (2001 - 2003)</p></div></li>
         <li><div className="div-pc-gamer-logo"><p>Counter String (1.3 - 1.4)</p></div></li>
-        <li><div className="div-pc-gamer-logo"><p>Deus Ex 2000 (Also With Online Patch)</p></div></li>
+        <li><div className="div-pc-gamer-logo"><p>Deus Ex 2000 (With Online Patch)</p></div></li>
         <li><div className="div-pc-gamer-logo"><p>Total Annihlation</p></div></li>
       </ul>
     </div>
