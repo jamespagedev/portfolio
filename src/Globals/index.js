@@ -2,7 +2,14 @@ import {
   hobbyTabIds
 } from './Variables.js';
 
+import { 
+  isBrowserIE
+} from './Functions.js';
+
 export {
-  // Variables
-  hobbyTabIds
+  // variables
+  hobbyTabIds,
+
+  // functions
+  isBrowserIE
 }

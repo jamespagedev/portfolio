@@ -4,6 +4,7 @@ import React from 'react';
 import Header from './Components/HeaderComponents/Header.js';
 import Intro from './Pages/Intro.js';
 import About from './Pages/About.js';
+import Projects from './Pages/Projects.js';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Header />
       <Intro />
       <About />
+      <Projects />
     </div>
   );
 }

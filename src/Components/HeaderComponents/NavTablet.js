@@ -25,7 +25,16 @@ function NavTablet() {
         >
           About
         </Link>
-        <a href="/#" className="header-nav-link">Projects</a>
+        <Link
+          to="projects"
+          spy={true}
+          smooth={true}
+          duration={500}
+          className="header-nav-link"
+          activeClass="header-nav-link--active"
+        >
+          Projects
+        </Link>
       </div>
       <div className="div-nav-tablet-row">
         <a href="/#" className="header-nav-link">Skills</a>

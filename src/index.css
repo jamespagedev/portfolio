@@ -152,6 +152,12 @@ img {
 .remove-flex-420 {
   display: flex!important;
 }
+.flex-sb-1024 {
+  display: none;
+}
+.flex-ct-1024 {
+  display: none;
+}
 /*=============================================================*/
 /*=========================== Header ==========================*/
 /*=============================================================*/
@@ -326,9 +332,6 @@ img {
 
 /*=========================== About ===========================*/
 .div-about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   Color: #ffffff;
   background-image: url('./img/blue-waves-background.jpg');
@@ -339,7 +342,8 @@ img {
   display: block;
   width: 100%;
   max-width: 1024px;
-  padding: 70px 12px 40px;
+  margin: 70px auto 40px;
+  padding: 0 12px;
 }
 .div-about-carousel {
   display: flex;
@@ -829,6 +833,165 @@ img {
   background-repeat: no-repeat;
 }
 
+/*========================== Projects =========================*/
+.div-projects {
+  width: 100%;
+  background-color: #ffffff;
+}
+.div-projects-content-container {
+  display: grid;
+  grid-gap: 50px 32px;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 1024px;
+  margin: 80px auto;
+  padding: 0 12px;
+}
+.div-projects-content-container-ie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1024px;
+  margin: 80px auto;
+  padding: 0 12px;
+}
+.div-proj-card {
+  display: block;
+  width: 100%;
+  height: 400px;
+  max-width: 225px;
+  background-color: transparent;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.div-proj-card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.div-ie-overlay-dropdown {
+  position: absolute;
+  top: -400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  padding: 40px 0;
+  background-color: #0087ce;
+  transition: top 300ms ease-in-out;
+}
+.div-proj-card:hover .div-ie-overlay-dropdown {
+  top: 0;
+}
+.div-ie-overlay-dropdown a {
+  width: 200px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  color: #ffffff;
+  border: 1px solid rgb(10, 10, 10);
+  text-align: center;
+  text-decoration: none;
+}
+.div-ie-overlay-dropdown a:hover {
+  color: rgb(10, 10, 10);
+  background-color: #ffffff;
+}
+.div-proj-card:hover .div-proj-card-container {
+  transform: rotateY(180deg);
+}
+.div-proj-card-container .div-proj-card-front, .div-proj-card-container .div-proj-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.div-proj-card-container .div-proj-card-front {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+.div-proj-card-front figure {
+  width: 100%;
+  height: 150px;
+  max-height: 150px;
+  overflow: hidden;
+  background-color: #00ffff;
+}
+.div-proj-card-front img {
+  max-height: 150px;
+}
+.div-proj-card-front-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 250px;
+}
+.div-proj-card-front-content .tags {
+  display: block;
+}
+.div-proj-card-front-content .tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  padding: 5px;
+  background-color: #0A2937;
+  color: white;
+  border-radius: 3px;
+  font-size: 1.6rem;
+}
+.div-proj-card-front-content h3 {
+  margin-bottom: 10px;
+  font-family: Calibri, sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+}
+.div-proj-card-front-content p {
+  font-family: Calibri, sans-serif;
+  font-size: 1.8rem;
+}
+.div-proj-card-front-content .urls {
+  width: 100%;
+  margin-top: auto;
+  padding: 0 10px;
+}
+.div-proj-card-front-content a {
+  padding: 6px 10px;
+  color: rgb(10, 10, 10);
+  border: 1px solid rgb(10, 10, 10);
+  border-radius: 6px;
+  text-decoration: none;
+}
+.div-proj-card-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 40px 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  background-color: #0087ce;
+  transform: rotateY(180deg);
+}
+.div-proj-card-back a {
+  width: 200px;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  color: #ffffff;
+  border: 1px solid rgb(10, 10, 10);
+  text-align: center;
+  text-decoration: none;
+}
+.div-proj-card-back a:hover {
+  color: rgb(10, 10, 10);
+  background-color: #ffffff;
+}
+
 /*=============================================================*/
 /*=============================================================*/
 /*===================== Responsive Design =====================*/
@@ -932,6 +1095,15 @@ img {
 /*============================ 1024 ===========================*/
 /*=============================================================*/
 @media screen and (max-width: 1024px) {
+  /*========================== Globals ==========================*/
+  .flex-sb-1024 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .flex-ct-1024 {
+    display: flex;
+    justify-content: center;
+  }
   /*=========================== About ===========================*/
   .div-about-content-container { max-width: 768px; }
   /*------------------- about-carousel-globals ------------------*/
@@ -1121,6 +1293,42 @@ img {
   }
   .div-about-fun-content-lists ul p {
     text-decoration: underline;
+  }
+  /*========================== Projects =========================*/
+  .div-projects-content-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .div-projects-content-container-ie {
+    max-width: 680px;
+  }
+  .div-proj-card {
+    justify-self: center;
+    perspective: none;
+    cursor: auto;
+  }
+  .div-proj-card-container {
+    transform-style: flat;
+  }
+  .div-ie-overlay-dropdown {
+    display: none;
+  }
+  .div-proj-card:hover .div-ie-overlay-dropdown {
+    top: -400;
+  }
+  .div-proj-card:hover .div-proj-card-container {
+    transform: none;
+  }
+  .div-proj-card-container .div-proj-card-front, .div-proj-card-container .div-proj-card-back {
+    position: static;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+  }
+  .div-proj-card-container .div-proj-card-back {
+    display: none;
+    border: none;
+    box-shadow: none;
+    background-color: none;
+    transform: none;
   }
 }
 
@@ -1723,6 +1931,14 @@ img {
   }
   .div-about-fun-content-lists ul p {
     font-size: 1.2rem;
+  }
+  /*========================== Projects =========================*/
+  .div-projects-content-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .div-projects-content-container-ie {
+    max-width: 470px;
+    justify-content: center;
   }
 }
 
