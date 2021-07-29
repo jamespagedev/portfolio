@@ -107,6 +107,17 @@ body,
   font-size: 62.5%;
   min-height: 100%;
 }
+body {
+  background-image: linear-gradient(
+    to right,
+    rgba(0,135,206,0.8),
+    rgba(0,135,206,0.8)
+  ),url('./img/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 *, *::before, *::after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -133,15 +144,6 @@ img {
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  background-image: linear-gradient(
-    to right,
-    rgba(0,135,206,0.8),
-    rgba(0,135,206,0.8)
-  ),url('./img/background.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 .display-none {
   display: none!important;
@@ -500,9 +502,6 @@ img {
   user-select: none;
   text-decoration: none;
 }
-.div-about-carousel-education-row a:hover h2 {
-  text-decoration: underline;
-}
 .about-carousel-education-top-left {
   border-right: 1px solid #00ffff;
   border-bottom: 1px solid #00ffff;
@@ -523,8 +522,25 @@ img {
   margin-bottom: 20px;
 }
 .div-about-carousel-education-row h2 {
-  padding: 2rem;
+  position: relative;
+  display: inline-block;
+  margin: 2rem;
   color: #00ffff;
+}
+.div-about-carousel-education-row h2::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #00ffff;
+  visibility: hidden;
+  transition: all 300ms ease-in-out;
+}
+.div-about-carousel-education-row a:hover h2::before {
+  visibility: visible;
+  width: 100%;
 }
 .img-about-carousel-education-associates {
   width: 400px;
@@ -992,6 +1008,12 @@ img {
   background-color: #ffffff;
 }
 
+/*=========================== Skills ==========================*/
+.div-skills {
+  width: 100%;
+  min-height: 100vh;
+}
+
 /*=============================================================*/
 /*=============================================================*/
 /*===================== Responsive Design =====================*/
@@ -1194,6 +1216,19 @@ img {
   }
   .div-about-carousel-education-row h2 {
     display: none;
+  }
+  .div-about-carousel-education-row h2::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    background-color: inherit;
+    transition: none;
+  }
+  .div-about-carousel-education-row a:hover h2::before {
+    width: 0;
   }
   .div-about-carousel-education-row img {
     margin-top: 20px;
@@ -1792,8 +1827,8 @@ img {
     transition: none;
   }
   .div-about-carousel-education-row h2 {
-    display: block;
-    padding: 0;
+    display: inline-block;
+    margin: 0;
     font-size: 1.6rem;
   }
   .div-about-carousel-education-row img {

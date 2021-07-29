@@ -34,7 +34,16 @@ function NavDesktop() {
       >
         Projects
       </Link>
-      <a href="/#" className="header-nav-link">Skills</a>
+      <Link
+        to="skills"
+        spy={true}
+        smooth={true}
+        duration={500}
+        className="header-nav-link"
+        activeClass="header-nav-link--active"
+      >
+        Skills
+      </Link>
       <a href="/#" className="header-nav-link">Resumes</a>
       <a href="/#" className="header-nav-link">Contact</a>
     </nav>
