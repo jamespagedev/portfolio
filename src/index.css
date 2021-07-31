@@ -536,7 +536,7 @@ img {
   left: 0;
   background-color: #00ffff;
   visibility: hidden;
-  transition: all 300ms ease-in-out;
+  transition: width 300ms ease-in-out;
 }
 .div-about-carousel-education-row a:hover h2::before {
   visibility: visible;
@@ -1010,8 +1010,360 @@ img {
 
 /*=========================== Skills ==========================*/
 .div-skills {
+  display: flex;
   width: 100%;
   min-height: 100vh;
+}
+.div-skills-side-cover {
+  width: 100%;
+  min-height: inherit;
+  background-color: #000000;
+}
+.div-skills-content-container {
+  position: relative;
+  display: block;
+  min-width: 1024px;
+  max-width: 1024px;
+  min-height: inherit;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+}
+.bubble {
+  position: absolute;
+  bottom: -300px;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2), inset 0px 10px 30px 5px rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+.bubble:after {
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.5)), color-stop(70%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+  -moz-box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.3);
+  content: "";
+  height: 180px;
+  left: 10px;
+  position: absolute;
+  width: 180px;
+}
+.bubble-xlg {
+  -webkit-animation: floatToTop 20s linear infinite, floatSideToSide 4s ease-in-out infinite alternate;
+  -moz-animation: floatToTop 20s linear infinite, floatSideToSide 4s ease-in-out infinite alternate;
+  animation: floatToTop 20s linear infinite, floatSideToSide 4s ease-in-out infinite alternate;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+.bubble-lg {
+  -webkit-animation: floatToTop 18s linear infinite, floatSideToSide 4s ease-in-out infinite alternate;
+  -moz-animation: floatToTop 18s linear infinite, floatSideToSide 4s ease-in-out infinite alternate;
+  animation: floatToTop 18s linear infinite, floatSideToSide 4s ease-in-out infinite alternate;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+.bubble-md-lg {
+  -webkit-animation: floatToTop 16s linear infinite, floatSideToSide 3s ease-in-out infinite alternate;
+  -moz-animation: floatToTop 16s linear infinite, floatSideToSide 3s ease-in-out infinite alternate;
+  animation: floatToTop 16s linear infinite, floatSideToSide 3s ease-in-out infinite alternate;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.bubble-md {
+  -webkit-animation: floatToTop 14s linear infinite, floatSideToSide 3s ease-in-out infinite alternate;
+  -moz-animation: floatToTop 14s linear infinite, floatSideToSide 3s ease-in-out infinite alternate;
+  animation: floatToTop 14s linear infinite, floatSideToSide 3s ease-in-out infinite alternate;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.bubble-sm-md {
+  -webkit-animation: floatToTop 12s linear infinite, floatSideToSide 2s ease-in-out infinite alternate;
+  -moz-animation: floatToTop 12s linear infinite, floatSideToSide 2s ease-in-out infinite alternate;
+  animation: floatToTop 12s linear infinite, floatSideToSide 2s ease-in-out infinite alternate;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+.bubble-sm {
+  -webkit-animation: floatToTop 10s linear infinite, floatSideToSide 2s ease-in-out infinite alternate;
+  -moz-animation: floatToTop 10s linear infinite, floatSideToSide 2s ease-in-out infinite alternate;
+  animation: floatToTop 10s linear infinite, floatSideToSide 2s ease-in-out infinite alternate;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+
+/*---------------------- Language Skills ----------------------*/
+.bubble-c {
+  left: 1%;
+}
+.bubble-c img {
+  width: 100%;
+  max-width: 120px;
+  height: 135px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-python {
+  left: 15%;
+}
+.bubble-python img {
+  width: 100%;
+  max-width: 110px;
+  height: 137.078px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-js {
+  left: 30%;
+}
+.bubble-js img {
+  width: 100%;
+  max-width: 120px;
+  height: 129.938px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-java {
+  left: 45%;
+}
+.bubble-java img {
+  width: 100%;
+  max-width: 80px;
+  height: 153.625px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-cpp {
+  left: 60%;
+}
+.bubble-cpp img {
+  width: 100%;
+  max-width: 120px;
+  height: 134.844px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-ps {
+  left: 75%;
+}
+.bubble-ps img {
+  width: 100%;
+  max-width: 120px;
+  height: 115.906px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+
+/*---------------------- Front-end Skills ---------------------*/
+.bubble-css {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  left: 1%;
+}
+.bubble-css img {
+  width: 100%;
+  max-width: 110px;
+  height: 154.219px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-redux {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  left: 15%;
+}
+.bubble-redux img {
+  width: 100%;
+  max-width: 110px;
+  height: 141.109px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-axios {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  left: 30%;
+}
+.bubble-axios img {
+  width: 100%;
+  max-width: 120px;
+  height: 30.4063px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-react {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  left: 45%;
+}
+.bubble-react img {
+  width: 100%;
+  max-width: 110px;
+  height: 134.156px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-html5 {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  left: 60%;
+}
+.bubble-html5 img {
+  width: 100%;
+  max-width: 110px;
+  height: 155.219px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-less {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  left: 75%;
+}
+.bubble-less img {
+  width: 100%;
+  max-width: 120px;
+  height: 53.5625px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+
+/*---------------------- Back-end Skills ----------------------*/
+.bubble-knex {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  animation-delay: 8s;
+  left: 1%;
+}
+.bubble-knex img {
+  width: 100%;
+  max-width: 120px;
+  height: 111.828px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-stripe {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  animation-delay: 8s;
+  left: 15%;
+}
+.bubble-stripe img {
+  width: 100%;
+  max-width: 120px;
+  height: 49.9063px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-rest {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  animation-delay: 8s;
+  left: 30%;
+}
+.bubble-rest img {
+  width: 100%;
+  max-width: 120px;
+  height: 82.6406px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-nodejs {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  animation-delay: 8s;
+  left: 45%;
+}
+.bubble-nodejs img {
+  width: 100%;
+  max-width: 120px;
+  height: 73.4688px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-express {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  animation-delay: 8s;
+  left: 60%;
+}
+.bubble-express img {
+  width: 100%;
+  max-width: 120px;
+  height: 120px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+.bubble-postgresql {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  animation-delay: 8s;
+  left: 75%;
+}
+.bubble-postgresql img {
+  width: 100%;
+  max-width: 120px;
+  height: 119.5px; /* ie - note: to get new height for width change, disable and read computed */
+  margin: auto;
+}
+
+/*-------------------- Animation Keyframes --------------------*/
+@-webkit-keyframes floatToTop {
+  0% {
+    margin-bottom: 0;
+  }
+  100% {
+    margin-bottom: 140vh;
+  }
+}
+@-moz-keyframes floatToTop {
+  0% {
+    margin-bottom: 0;
+  }
+  100% {
+    margin-bottom: 140vh;
+  }
+}
+@keyframes floatToTop {
+  0% {
+    margin-bottom: 0;
+  }
+  100% {
+    margin-bottom: 140vh;
+  }
+}
+@-webkit-keyframes floatSideToSide {
+  0% { 
+    margin-left:0px;
+  }
+  100% { 
+    margin-left:50px;
+  }
+}
+@-moz-keyframes floatSideToSide {
+  0% { 
+    margin-left:0px;
+  }
+  100% { 
+    margin-left:50px;
+  }
+}
+@keyframes floatSideToSide {
+  0% { 
+    margin-left:0px;
+  }
+  100% { 
+    margin-left:50px;
+  }
 }
 
 /*=============================================================*/
@@ -1364,6 +1716,104 @@ img {
     box-shadow: none;
     background-color: none;
     transform: none;
+  }
+  /*=========================== Skills ==========================*/
+  .div-skills-side-cover {
+    display: none;
+  }
+  .div-skills-content-container {
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+  }
+  .bubble-xlg {
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  .bubble-lg {
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  .bubble-md-lg {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+  .bubble-md {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+  .bubble-sm-md {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  .bubble-sm {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  /*---------------------- Language Skills ----------------------*/
+  .bubble-c {
+    left: 1%;
+  }
+  .bubble-python {
+    left: 10%;
+  }
+  .bubble-js {
+    left: 25%;
+  }
+  .bubble-java {
+    left: 40%;
+  }
+  .bubble-cpp {
+    left: 55%;
+  }
+  .bubble-ps {
+    left: 70%;
+  }
+
+  /*---------------------- Front-end Skills ---------------------*/
+  .bubble-css {
+    left: 1%;
+  }
+  .bubble-redux {
+    left: 10%;
+  }
+  .bubble-axios {
+    left: 25%;
+  }
+  .bubble-react {
+    left: 40%;
+  }
+  .bubble-html5 {
+    left: 55%;
+  }
+  .bubble-less {
+    left: 70%;
+  }
+
+  /*---------------------- Back-end Skills ----------------------*/
+  .bubble-knex {
+    left: 1%;
+  }
+  .bubble-stripe {
+    left: 10%;
+  }
+  .bubble-rest {
+    left: 25%;
+  }
+  .bubble-nodejs {
+    left: 40%;
+  }
+  .bubble-express {
+    left: 55%;
+  }
+  .bubble-postgresql {
+    left: 68%;
   }
 }
 
