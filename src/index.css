@@ -1114,7 +1114,7 @@ img {
 
 /*---------------------- Language Skills ----------------------*/
 .bubble-c {
-  left: 1%;
+  left: -3.5%;
 }
 .bubble-c img {
   width: 100%;
@@ -1123,7 +1123,7 @@ img {
   margin: auto;
 }
 .bubble-python {
-  left: 15%;
+  left: 12.65%;
 }
 .bubble-python img {
   width: 100%;
@@ -1132,7 +1132,7 @@ img {
   margin: auto;
 }
 .bubble-js {
-  left: 30%;
+  left: 28.80%;
 }
 .bubble-js img {
   width: 100%;
@@ -1141,7 +1141,7 @@ img {
   margin: auto;
 }
 .bubble-java {
-  left: 45%;
+  left: 44.95%;
 }
 .bubble-java img {
   width: 100%;
@@ -1150,7 +1150,7 @@ img {
   margin: auto;
 }
 .bubble-cpp {
-  left: 60%;
+  left: 61.1%;
 }
 .bubble-cpp img {
   width: 100%;
@@ -1159,7 +1159,7 @@ img {
   margin: auto;
 }
 .bubble-ps {
-  left: 75%;
+  left: 77.25%;
 }
 .bubble-ps img {
   width: 100%;
@@ -1173,7 +1173,7 @@ img {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
   animation-delay: 4s;
-  left: 1%;
+  left: 0.5%;
 }
 .bubble-css img {
   width: 100%;
@@ -1185,7 +1185,7 @@ img {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
   animation-delay: 4s;
-  left: 15%;
+  left: 15.4%;
 }
 .bubble-redux img {
   width: 100%;
@@ -1197,7 +1197,7 @@ img {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
   animation-delay: 4s;
-  left: 30%;
+  left: 31.3%;
 }
 .bubble-axios img {
   width: 100%;
@@ -1209,7 +1209,7 @@ img {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
   animation-delay: 4s;
-  left: 45%;
+  left: 47.2%;
 }
 .bubble-react img {
   width: 100%;
@@ -1221,7 +1221,7 @@ img {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
   animation-delay: 4s;
-  left: 60%;
+  left: 63.1%;
 }
 .bubble-html5 img {
   width: 100%;
@@ -1233,7 +1233,7 @@ img {
   -webkit-animation-delay: 4s;
   -moz-animation-delay: 4s;
   animation-delay: 4s;
-  left: 75%;
+  left: 79%;
 }
 .bubble-less img {
   width: 100%;
@@ -1247,7 +1247,7 @@ img {
   -webkit-animation-delay: 8s;
   -moz-animation-delay: 8s;
   animation-delay: 8s;
-  left: 1%;
+  left: -1.75%;
 }
 .bubble-knex img {
   width: 100%;
@@ -1259,7 +1259,7 @@ img {
   -webkit-animation-delay: 8s;
   -moz-animation-delay: 8s;
   animation-delay: 8s;
-  left: 15%;
+  left: 13.6%;
 }
 .bubble-stripe img {
   width: 100%;
@@ -1271,7 +1271,7 @@ img {
   -webkit-animation-delay: 8s;
   -moz-animation-delay: 8s;
   animation-delay: 8s;
-  left: 30%;
+  left: 28.95%;
 }
 .bubble-rest img {
   width: 100%;
@@ -1283,7 +1283,7 @@ img {
   -webkit-animation-delay: 8s;
   -moz-animation-delay: 8s;
   animation-delay: 8s;
-  left: 45%;
+  left: 44.3%;
 }
 .bubble-nodejs img {
   width: 100%;
@@ -1295,7 +1295,7 @@ img {
   -webkit-animation-delay: 8s;
   -moz-animation-delay: 8s;
   animation-delay: 8s;
-  left: 60%;
+  left: 59.65%;
 }
 .bubble-express img {
   width: 100%;
@@ -1758,59 +1758,59 @@ img {
   }
   /*---------------------- Language Skills ----------------------*/
   .bubble-c {
-    left: 1%;
+    left: -4.5%;
   }
   .bubble-python {
-    left: 10%;
+    left: 10.6%;
   }
   .bubble-js {
-    left: 25%;
+    left: 25.7%;
   }
   .bubble-java {
-    left: 40%;
+    left: 40.8%;
   }
   .bubble-cpp {
-    left: 55%;
+    left: 55.9%;
   }
   .bubble-ps {
-    left: 70%;
+    left: 71%;
   }
 
   /*---------------------- Front-end Skills ---------------------*/
   .bubble-css {
-    left: 1%;
+    left: -0.8%;
   }
   .bubble-redux {
-    left: 10%;
+    left: 14.06%;
   }
   .bubble-axios {
-    left: 25%;
+    left: 28.92%;
   }
   .bubble-react {
-    left: 40%;
+    left: 43.78%;
   }
   .bubble-html5 {
-    left: 55%;
+    left: 58.64%;
   }
   .bubble-less {
-    left: 70%;
+    left: 73.5%;
   }
 
   /*---------------------- Back-end Skills ----------------------*/
   .bubble-knex {
-    left: 1%;
+    left: -2.7%;
   }
   .bubble-stripe {
-    left: 10%;
+    left: 11.44%;
   }
   .bubble-rest {
-    left: 25%;
+    left: 25.58%;
   }
   .bubble-nodejs {
-    left: 40%;
+    left: 39.72%;
   }
   .bubble-express {
-    left: 55%;
+    left: 53.86%;
   }
   .bubble-postgresql {
     left: 68%;
@@ -2165,6 +2165,122 @@ img {
     background-size: 76px;
     background-position: -2px -25px;
   }
+  /*=========================== Skills ==========================*/
+  .bubble-xlg {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+  .bubble-lg {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+  }
+  .bubble-md-lg {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+  }
+  .bubble-md {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+  }
+  .bubble-sm-md {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  .bubble-sm {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  /*---------------------- Language Skills ----------------------*/
+  .bubble-c {
+    left: -6%;
+  }
+  .bubble-python {
+    left: 8.2%;
+  }
+  .bubble-js {
+    left: 22.4%;
+  }
+  .bubble-java {
+    left: 36.6%;
+  }
+  .bubble-cpp {
+    left: 50.8%;
+  }
+  .bubble-ps {
+    left: 65%;
+  }
+
+  /*---------------------- Front-end Skills ---------------------*/
+  .bubble-css {
+    left: -3.5%;
+  }
+  .bubble-redux {
+    left: 10.5%;
+  }
+  .bubble-axios {
+    left: 24.5%;
+  }
+  .bubble-react {
+    left: 38.5%;
+  }
+  .bubble-html5 {
+    left: 52.5%;
+  }
+  .bubble-less {
+    left: 66.5%;
+  }
+
+  /*---------------------- Back-end Skills ----------------------*/
+  .bubble-knex {
+    left: -5%;
+  }
+  .bubble-stripe {
+    left: 8.6%;
+  }
+  .bubble-rest {
+    left: 22.2%;
+  }
+  .bubble-nodejs {
+    left: 35.8%;
+  }
+  .bubble-express {
+    left: 49.4%;
+  }
+  .bubble-postgresql {
+    left: 63%;
+  }
+
+  /*-------------------- Animation Keyframes --------------------*/
+  @-webkit-keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:40px;
+    }
+  }
+  @-moz-keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:40px;
+    }
+  }
+  @keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:40px;
+    }
+  }
 }
 
 /*=============================================================*/
@@ -2425,6 +2541,96 @@ img {
     max-width: 470px;
     justify-content: center;
   }
+  /*=========================== Skills ==========================*/
+  .bubble-xlg {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+  }
+  .bubble-lg {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+  }
+  .bubble-md-lg {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  .bubble-md {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  .bubble-sm-md {
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+  .bubble-sm {
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+  /*---------------------- Language Skills ----------------------*/
+  .bubble-c {
+    left: -10%;
+  }
+  .bubble-python {
+    left: 2.8%;
+  }
+  .bubble-js {
+    left: 15.6%;
+  }
+  .bubble-java {
+    left: 28.4%;
+  }
+  .bubble-cpp {
+    left: 41.2%;
+  }
+  .bubble-ps {
+    left: 54%;
+  }
+
+  /*---------------------- Front-end Skills ---------------------*/
+  .bubble-css {
+    left: -6%;
+  }
+  .bubble-redux {
+    left: 6.4%;
+  }
+  .bubble-axios {
+    left: 18.8%;
+  }
+  .bubble-react {
+    left: 31.2%;
+  }
+  .bubble-html5 {
+    left: 43.6%;
+  }
+  .bubble-less {
+    left: 56%;
+  }
+
+  /*---------------------- Back-end Skills ----------------------*/
+  .bubble-knex {
+    left: -8%;
+  }
+  .bubble-stripe {
+    left: 4%;
+  }
+  .bubble-rest {
+    left: 16%;
+  }
+  .bubble-nodejs {
+    left: 28%;
+  }
+  .bubble-express {
+    left: 40%;
+  }
+  .bubble-postgresql {
+    left: 52%;
+  }
 }
 
 @keyframes bounce-arrow-before-576 {
@@ -2596,6 +2802,92 @@ img {
     padding-left: 47px;
     background-size: 58px;
     background-position: -7px -17px;
+  }
+  /*=========================== Skills ==========================*/
+  /*---------------------- Language Skills ----------------------*/
+  .bubble-c {
+    left: -14%;
+  }
+  .bubble-python {
+    left: -1%;
+  }
+  .bubble-js {
+    left: 12%;
+  }
+  .bubble-java {
+    left: 25%;
+  }
+  .bubble-cpp {
+    left: 38%;
+  }
+  .bubble-ps {
+    left: 51%;
+  }
+
+  /*---------------------- Front-end Skills ---------------------*/
+  .bubble-css {
+    left: -9%;
+  }
+  .bubble-redux {
+    left: 3.6%;
+  }
+  .bubble-axios {
+    left: 16.2%;
+  }
+  .bubble-react {
+    left: 28.8%;
+  }
+  .bubble-html5 {
+    left: 41.4%;
+  }
+  .bubble-less {
+    left: 54%;
+  }
+
+  /*---------------------- Back-end Skills ----------------------*/
+  .bubble-knex {
+    left: -11%;
+  }
+  .bubble-stripe {
+    left: 0.8%;
+  }
+  .bubble-rest {
+    left: 12.6%;
+  }
+  .bubble-nodejs {
+    left: 24.4%;
+  }
+  .bubble-express {
+    left: 36.2%;
+  }
+  .bubble-postgresql {
+    left: 48%;
+  }
+
+  /*-------------------- Animation Keyframes --------------------*/
+  @-webkit-keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:25px;
+    }
+  }
+  @-moz-keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:25px;
+    }
+  }
+  @keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:25px;
+    }
   }
 }
 
@@ -2771,6 +3063,66 @@ img {
   .div-arcade-logo {
     background-position: 0 3px;
   }
+  /*=========================== Skills ==========================*/
+  /*---------------------- Language Skills ----------------------*/
+  .bubble-c {
+    left: -16%;
+  }
+  .bubble-python {
+    left: -3.8%;
+  }
+  .bubble-js {
+    left: 8.4%;
+  }
+  .bubble-java {
+    left: 20.6%;
+  }
+  .bubble-cpp {
+    left: 32.8%;
+  }
+  .bubble-ps {
+    left: 45%;
+  }
+
+  /*---------------------- Front-end Skills ---------------------*/
+  .bubble-css {
+    left: -10%;
+  }
+  .bubble-redux {
+    left: 1.6%;
+  }
+  .bubble-axios {
+    left: 13.2%;
+  }
+  .bubble-react {
+    left: 24.8%;
+  }
+  .bubble-html5 {
+    left: 36.4%;
+  }
+  .bubble-less {
+    left: 48%;
+  }
+
+  /*---------------------- Back-end Skills ----------------------*/
+  .bubble-knex {
+    left: -13%;
+  }
+  .bubble-stripe {
+    left: -2%;
+  }
+  .bubble-rest {
+    left: 9%;
+  }
+  .bubble-nodejs {
+    left: 20%;
+  }
+  .bubble-express {
+    left: 31%;
+  }
+  .bubble-postgresql {
+    left: 42%;
+  }
 }
 
 @keyframes bounce-arrow-before-360 {
@@ -2914,6 +3266,119 @@ img {
     padding-left: 50px;
     background-size: 45px 15px;
     background-position: 0 4px;
+  }
+  /*=========================== Skills ==========================*/
+  .bubble-xlg {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  .bubble-lg {
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  .bubble-md-lg {
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+  .bubble-md {
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    transform: scale(0.4);
+  }
+  .bubble-sm-md {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+  .bubble-sm {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+  /*---------------------- Language Skills ----------------------*/
+  .bubble-c {
+    left: -21%;
+  }
+  .bubble-python {
+    left: -8.4%;
+  }
+  .bubble-js {
+    left: 4.2%;
+  }
+  .bubble-java {
+    left: 16.8%;
+  }
+  .bubble-cpp {
+    left: 29.4%;
+  }
+  .bubble-ps {
+    left: 42%;
+  }
+  /*---------------------- Front-end Skills ---------------------*/
+  .bubble-css {
+    left: -15%;
+  }
+  .bubble-redux {
+    left: 2.8%;
+  }
+  .bubble-axios {
+    left: 9.4%;
+  }
+  .bubble-react {
+    left: 21.6%;
+  }
+  .bubble-html5 {
+    left: 33.8%;
+  }
+  .bubble-less {
+    left: 46%;
+  }
+  /*---------------------- Back-end Skills ----------------------*/
+  .bubble-knex {
+    left: -18%;
+  }
+  .bubble-stripe {
+    left: -6.6%;
+  }
+  .bubble-rest {
+    left: 4.8%;
+  }
+  .bubble-nodejs {
+    left: 16.2%;
+  }
+  .bubble-express {
+    left: 27.6%;
+  }
+  .bubble-postgresql {
+    left: 39%;
+  }
+  /*-------------------- Animation Keyframes --------------------*/
+  @-webkit-keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:20px;
+    }
+  }
+  @-moz-keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:20px;
+    }
+  }
+  @keyframes floatSideToSide {
+    0% { 
+      margin-left:0px;
+    }
+    100% { 
+      margin-left:20px;
+    }
   }
 }
 @keyframes bounce-arrow-before-320 {
