@@ -1118,8 +1118,8 @@ img {
 }
 .bubble-c img {
   width: 100%;
-  max-width: 120px;
-  height: 135px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 130px;
+  height: 146.25px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-python {
@@ -1154,8 +1154,8 @@ img {
 }
 .bubble-cpp img {
   width: 100%;
-  max-width: 120px;
-  height: 134.844px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 130px;
+  height: 146.078px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-ps {
@@ -1201,8 +1201,8 @@ img {
 }
 .bubble-axios img {
   width: 100%;
-  max-width: 120px;
-  height: 30.4063px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 150px;
+  height: 38.0156px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-react {
@@ -1237,8 +1237,8 @@ img {
 }
 .bubble-less img {
   width: 100%;
-  max-width: 120px;
-  height: 53.5625px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 160px;
+  height: 71.375px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 
@@ -1263,8 +1263,8 @@ img {
 }
 .bubble-stripe img {
   width: 100%;
-  max-width: 120px;
-  height: 49.9063px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 150px;
+  height: 62.3906px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-rest {
@@ -1275,8 +1275,8 @@ img {
 }
 .bubble-rest img {
   width: 100%;
-  max-width: 120px;
-  height: 82.6406px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 140px;
+  height: 96.4063px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-nodejs {
@@ -1287,8 +1287,8 @@ img {
 }
 .bubble-nodejs img {
   width: 100%;
-  max-width: 120px;
-  height: 73.4688px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 160px;
+  /*height: 73.4688px; ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-express {
@@ -1299,8 +1299,8 @@ img {
 }
 .bubble-express img {
   width: 100%;
-  max-width: 120px;
-  height: 120px; /* ie - note: to get new height for width change, disable and read computed */
+  max-width: 150px;
+  height: 150px; /* ie - note: to get new height for width change, disable and read computed */
   margin: auto;
 }
 .bubble-postgresql {
