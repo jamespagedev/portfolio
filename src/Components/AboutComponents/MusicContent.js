@@ -36,14 +36,14 @@ const MusicContent = props => {
       <ul>
         <li><a href="https://www.youtube.com/watch?v=4zYPCihqfO0" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Dido - Here With Me</p></div></a></li>
         <li><a href="https://www.youtube.com/watch?v=MMjyqKnARKo" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Dope - Always</p></div></a></li>
-        <li><a href="https://www.youtube.com/watch?v=uvQMPagkFPA" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Flaw - Whole</p></div></a></li>
+        <li><a href="https://www.youtube.com/watch?v=g_sFZ0NJQks" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Flaw - Whole</p></div></a></li>
         <li><a href="https://www.youtube.com/watch?v=Nioflv9Xn5I" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Globius - Take Me Away</p></div></a></li>
         <li><a href="https://www.youtube.com/watch?v=isCh4kCeNYU" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Guns N' Roses - Civil War</p></div></a></li>
       </ul>
       <ul>
         <li><a href="https://www.youtube.com/watch?v=gp_O2COE0mk" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Innerpartysystem - Don't Stop (Only This Version)</p></div></a></li>
         <li><a href="https://www.youtube.com/watch?v=wCejX8vMzXM" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Innerpartysystem - Last Night In Brooklyn</p></div></a></li>
-        <li><a href="https://www.youtube.com/watch?v=g_sFZ0NJQks" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Jem - 24</p></div></a></li>
+        <li><a href="https://www.youtube.com/watch?v=FKgxkxbxI7Q" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Jem - 24</p></div></a></li>
         <li><a href="https://www.youtube.com/watch?v=sp83ZbxuUdk" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Kansas - Dust In The Wind</p></div></a></li>
         <li><a href="https://www.youtube.com/watch?v=g-Abuc7ddu0" target="_blank" rel="noopener noreferrer"><div className="div-about-fun-youtube-icon"><p>Kaskade - Eyes (Kaskade's ICE Mix)</p></div></a></li>
       </ul>
